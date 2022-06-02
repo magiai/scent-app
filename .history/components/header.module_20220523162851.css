@@ -1,0 +1,12 @@
+.header {
+    padding-top: var(--space--s);
+    padding-bottom: var(--space--s);
+}
+
+.navigation {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

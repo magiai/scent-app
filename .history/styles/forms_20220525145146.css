@@ -1,0 +1,76 @@
+:root {
+    --form-control__color: var(--color--secondary);
+    --form-control-disabled: var(--color--disabled);
+}
+
+.form-control {
+    font-family: system-iu, sans-serif;
+    font-size: var(--font-size--base);
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    --webkit-appearance: none;
+    appearance: none;
+    background-color: var(--color--white);
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+}
+
+input[type="radio"] {
+    border-radius: 50%;
+}
+
+input[type="radio"]::before,
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control__color);
+    background-color: CanvasText;
+}
+
+input[type="radio"]::before {
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked::before,
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+}
+
+input[type="radio"]:disabled,
+input[type="checkbox"]:disabled {
+    --form-control-color: var(--form-control-disabled);
+    color: var(--form-control-disabled);
+    cursor: not-allowed;
+}
+
+.form-control + .form-control {
+    margin-top: 1em;
+}

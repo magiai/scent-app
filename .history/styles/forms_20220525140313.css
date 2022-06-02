@@ -1,0 +1,13 @@
+:root {
+    --form-control__color: var(--color--primary);
+}
+
+.form-control {
+    font-family: system-iu, sans-serif;
+    /* font-size: var(--font-size--base); */
+    font-weight: bold;
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+}

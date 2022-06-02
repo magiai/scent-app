@@ -1,0 +1,5 @@
+.container {
+    padding-left: var(--space--m);
+    padding-right: var(--space--m);
+    background-color: pink;
+}
