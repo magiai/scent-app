@@ -15,10 +15,6 @@
     display: flex;
 }
 
-.navigationList li {
-    list-style: none;
-}
-
 .navigationList li:not(:last-of-type) {
-    margin-right: var(--space--m);
+    margin-right: var(--space--m)
 }

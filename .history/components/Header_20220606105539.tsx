@@ -20,18 +20,12 @@ export default function Header() {
                         />
                     </a>
                 </Link>
-                <ul className = { styles.navigationList }>
-                    <li>
-                        <Link href="/about">
-                            <a>About</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/about">
-                            <a>phrase: {selectPhrase} </a>
-                        </Link>
-                    </li>
-                </ul>
+                <Link href="/about">
+                    <a>About</a>
+                </Link>
+                <Link href="/about">
+                    <a>phrase: {selectPhrase} </a>
+                </Link>
             </nav>
         </header>
     );

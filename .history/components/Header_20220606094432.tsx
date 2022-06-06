@@ -6,7 +6,7 @@ import { selectSearch } from './../components/search/searchSlice';
 
 export default function Header() {
     const selectPhrase = useAppSelector(selectSearch);
-
+    console.log({selectPhrase});
     return (
         <header className = {styles.header}>
             <nav className = {styles.navigation}>
@@ -20,18 +20,12 @@ export default function Header() {
                         />
                     </a>
                 </Link>
-                <ul className = { styles.navigationList }>
-                    <li>
-                        <Link href="/about">
-                            <a>About</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/about">
-                            <a>phrase: {selectPhrase} </a>
-                        </Link>
-                    </li>
-                </ul>
+                <Link href="/about">
+                    <a>About</a>
+                </Link>
+                <Link href="/about">
+                    <a>{selectPhrase}</a>
+                </Link>
             </nav>
         </header>
     );

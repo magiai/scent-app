@@ -16,7 +16,7 @@
 }
 
 .navigationList li {
-    list-style: none;
+    text-decoration: none;
 }
 
 .navigationList li:not(:last-of-type) {

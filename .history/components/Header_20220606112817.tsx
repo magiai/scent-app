@@ -20,7 +20,7 @@ export default function Header() {
                         />
                     </a>
                 </Link>
-                <ul className = { styles.navigationList }>
+                <ul>
                     <li>
                         <Link href="/about">
                             <a>About</a>
