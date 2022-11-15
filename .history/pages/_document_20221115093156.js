@@ -5,7 +5,7 @@ export default function Document() {
         <Html lang="en">
         <Head>
             <meta charset="utf-8" />
-            <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta name=" theme-color" content="#fff" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="robots" content="noindex, nofollow" />
