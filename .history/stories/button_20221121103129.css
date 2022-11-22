@@ -1,0 +1,71 @@
+:root {
+    --svg__button__width: 15rem;
+    --svg__button__height: 10rem;
+}
+
+.svg__button, 
+.storybook-button {
+ border-top: 0.2rem;
+  border-left: 0.2rem;
+  border-bottom: 0.2rem;
+  border-color: black;
+  border-style: solid;
+}
+
+.storybook-button {
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+   
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    border-right: none;
+  
+    font-size: 18px; /*change to 3 times smaller when svg size will be adjusted */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+  }
+
+.storybook-button--primary {
+  color: black;
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: ease-out;
+}
+
+.storybook-button--primary:active #bottle__path,
+.storybook-button--primary:focus #bottle__path,
+.storybook-button--primary:hover #bottle__path {
+    transform: rotateZ(20deg) translateX(20%) translateY(-30%);
+}
+
+.svg__button {
+    display: flex;
+    width: var(--svg__button__width);
+    height: var(--svg__button__height);
+    margin-top: 1rem;
+}
+
+.svg__button__label {
+    fill: black;
+}
+
+#bottle__path {
+    stroke: black;
+    stroke-width: 0.3rem;
+}
+
+.storybook-button--secondary {
+  color: #333;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+}
+.storybook-button--small {
+}
+.storybook-button--medium {
+}
+.storybook-button--large {
+
+}
+
+

@@ -1,0 +1,58 @@
+:root {
+    --svg__button__width: 10rem;
+    --svg__button__height: 10rem;
+}
+
+.storybook-button {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  border: 1rem;
+  border-color: brown;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+}
+.storybook-button--primary {
+  color: white;
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: ease-out;
+}
+
+.storybook-button--primary:hover #bottle__path {
+    transform: rotateZ(30deg) translateX(30%) translateY(-40%) ;
+}
+
+.svg__button {
+    width: var(--svg__button__width);
+    height: var(--svg__button__height);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.storybook-button--secondary {
+  color: #333;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+}
+.storybook-button--small {
+  font-size: 18px;
+  padding: 10px 16px;
+}
+.storybook-button--medium {
+  font-size: 24px;
+  padding: 11px 20px;
+}
+.storybook-button--large {
+  font-size: 96px; /*change to 3 times smaller when svg size will be adjusted */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  padding: 0rem;
+}
+
+.svg__button__label {
+    fill: white;
+}

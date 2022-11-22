@@ -7,17 +7,17 @@ export default function Header() {
         <header className = {styles.header}>
                 <nav>
                     <Link href="/">
-                        <a>
-                            <Image 
-                                src="/images/logo.png"
-                                height={100}
-                                width={100}
-                                alt="Logo"
-                            />
-                        </a>
+
+                        <Image 
+                            src="/images/logo.png"
+                            height={100}
+                            width={100}
+                            alt="Logo"
+                        />
+
                     </Link>  
                     <Link href="/about">
-                        <a>About</a>
+                        About
                     </Link>
                 </nav>
             </header>

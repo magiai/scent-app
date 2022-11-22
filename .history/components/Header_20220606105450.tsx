@@ -11,20 +11,20 @@ export default function Header() {
         <header className = {styles.header}>
             <nav className = {styles.navigation}>
                 <Link href="/">
-                    <a>
-                        <Image 
-                            src = "/images/logo.png"
-                            height = {60}
-                            width = {60}
-                            alt = "Logo"
-                        />
-                    </a>
+
+                    <Image 
+                        src = "/images/logo.png"
+                        height = {60}
+                        width = {60}
+                        alt = "Logo"
+                    />
+
                 </Link>
                 <Link href="/about">
-                    <a>About</a>
+                    About
                 </Link>
                 <Link href="/about">
-                    <a>{selectPhrase} </a>
+                    {selectPhrase} 
                 </Link>
             </nav>
         </header>

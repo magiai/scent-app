@@ -10,10 +10,10 @@ export default function Home() {
       </Head>
       <header>
           <nav>
-              <Link href="/">
+              <Link href="/" legacyBehavior>
                   <a>Home</a>
               </Link>  
-              <Link href="/about">
+              <Link href="/about" legacyBehavior>
                   <a>About</a>
               </Link>
           </nav>
@@ -216,5 +216,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }

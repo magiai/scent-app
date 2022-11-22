@@ -1,0 +1,102 @@
+:root {
+    --svg__button__width: 15rem;
+    --svg__button__height: 10rem;
+    --button__border__width: 0.1rem;
+}
+
+button {
+    font-size: max(var(--font-size--base), 1em);
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: var(--color--secondary);
+    border-radius: 0.1rem;
+    border: var(--button__border);
+    line-height: 1;
+}
+
+.svg__button, 
+button {
+    border-top-width: var(--button__border__width);
+    border-left-width: var(--button__border__width);
+    border-bottom-width: var(--button__border__width);
+    border-color: black;
+    border-style: solid;
+}
+
+.button--svg span {
+    border: 1px solid black;
+    margin-top: var(--space--xs);
+    display: flex;
+    align-items: center;
+    width: var(--svg__button__width);
+    background: white;
+    text-overflow: clip;
+    height: 4rem;
+}
+
+.storybook-button {
+    font-weight: 500;
+   
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    border-right-width: 0rem;
+  
+    font-size: 18px; /*change to 3 times smaller when svg size will be adjusted */
+    font-family: 'Courier New', Courier, monospace;
+    /* font-style: italic; */
+    mask: url(#gradient-mask);
+  }
+
+.button--svg {
+  color: black;
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: ease-out;
+}
+
+.button--svg:active #bottle__path,
+.button--svg:focus #bottle__path,
+.button--svg:hover #bottle__path {
+    transform: rotateZ(20deg) translateX(20%) translateY(-30%);
+}
+
+.button--svg:active,
+.button--svg:focus,
+.button--svg:hover {
+    background-color: rgba(87, 69, 58, 0.7);
+}
+
+svg.svg__button {
+    display: flex;
+    width: var(--svg__button__width);
+    height: var(--svg__button__height);
+    margin-top: 1rem;
+    background-color: var(--color--secondary);
+    border-right-width: var(--button__border__width);
+    /* filter: url(#noiseFilter); */
+}
+
+.svg__button__label {
+    fill: black;
+}
+
+#bottle__path {
+    stroke: black;
+    stroke-width: 0.3rem;
+}
+
+.storybook-button--secondary {
+  color: #333;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+}
+.storybook-button--small {
+}
+.storybook-button--medium {
+}
+.storybook-button--large {
+
+}
+
+

@@ -1,0 +1,88 @@
+:root {
+    --svg__button__width: 15rem;
+    --svg__button__height: 10rem;
+    --button__svg__width: calc(var(--svg__button__width) + var(--space--s) * 2);
+    --button__border__width: 0.1rem;
+}
+
+button {
+    font-size: max(var(--font-size--base), 1em);
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: var(--color--secondary);
+    border-radius: 0.1rem;
+    border: var(--button__border);
+    line-height: 1;
+}
+
+.svg__button, 
+button {
+    border-top-width: var(--button__border__width);
+    border-left-width: var(--button__border__width);
+    border-bottom-width: var(--button__border__width);
+    border-color: black;
+    border-style: solid;
+}
+
+.button--svg {
+    border-right-width: 0rem;
+    padding: 0;
+    width: var(--button__svg__width);
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: ease-out;
+}
+
+.button--svg__label {
+    border: 3px solid black;
+    height: 4.6rem;
+    width: var(--button__svg__width);
+    margin-top: var(--space--xs);
+    background-color: white;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding-top: var(--space--xs);
+    padding-right: var(--space--xs);
+    padding-bottom: var(--space--xs);
+    padding-left: var(--space--xs);
+}
+
+.button--svg:active #bottle__path,
+.button--svg:focus #bottle__path,
+.button--svg:hover #bottle__path {
+    transform: rotateZ(20deg) translateX(20%) translateY(-30%);
+}
+
+.button--svg:active,
+.button--svg:focus,
+.button--svg:hover {
+    background-color: rgba(87, 69, 58, 0.7);
+}
+
+svg.svg__button {
+    display: flex;
+    width: var(--svg__button__width);
+    height: var(--svg__button__height);
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border-right-width: var(--button__border__width);
+    /* filter: url(#noiseFilter); */
+}
+
+#bottle__path {
+    stroke: black;
+    stroke-width: 0.3rem;
+}
+
+.storybook-button--secondary {
+  color: #333;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+}
+
+
+

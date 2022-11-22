@@ -34,7 +34,7 @@ export default function Home() {
       </Head>
       <header>
           <nav>
-              <Link href="/">
+              <Link href="/" legacyBehavior>
                   <a>
                       <Image 
                           src="/images/logo.png"
@@ -44,7 +44,7 @@ export default function Home() {
                       />
                   </a>
               </Link>  
-              <Link href="/about">
+              <Link href="/about" legacyBehavior>
                   <a>About</a>
               </Link>
           </nav>
@@ -245,5 +245,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }
