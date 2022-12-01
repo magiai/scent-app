@@ -1,0 +1,8 @@
+svg.svg--bottle {
+    display: flex;
+    width: var(--svg__button__width);
+    height: var(--svg__button__height);
+    margin-top: 1rem;
+    background-color: white;
+    border-right-width: var(--button__border__width);
+}
