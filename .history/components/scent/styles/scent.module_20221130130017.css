@@ -1,0 +1,23 @@
+.svg--bottle, 
+.button--scent {
+    border-top-width: var(--button__border__width);
+    border-left-width: var(--button__border__width);
+    border-bottom-width: var(--button__border__width);
+    border-color: black;
+    border-style: solid;
+}
+
+.button--scent {
+    border-right-width: 0rem;
+    color: black;
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: ease-out;
+}
+
+.button--scent:active,
+.button--scent:focus,
+.button--scent:hover {
+    background-color: rgba(87, 69, 58, 0.7);
+}
+

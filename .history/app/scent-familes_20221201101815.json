@@ -1,0 +1,54 @@
+[   
+    {
+        "categoryId":0,
+        "name":"citrus", 
+        "note": "top",
+        "scents":[
+            {
+                "scentId": 1,
+                "name":"Bergamot",
+                "color": "#93c645",
+                "isBasic": true,
+                "image": null,
+                "description": null,
+                "link": null
+            },
+            {
+                "scentId": 2,
+                "name":"Bigarade",
+                "color": "#fcba21",
+                "isBasic": true,
+                "image": null,
+                "description": null,
+                "link": null
+            },
+            {
+                "scentId": 3,
+                "name":"Bitter Orange",
+                "color": "#f9bc58",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "link": null
+            }
+        ]
+    },
+    {
+        "categoryId":1,
+        "name":"Books",
+        "subCategories":[
+            {"subCategoryId":1,"name":"Hardcover"},
+            {"subCategoryId":2,"name":"Paperback"},
+            {"subCategoryId":3,"name":"Electronic"}
+        ]
+    },
+    {
+        "categoryId":2,
+        "name":"Movies",
+        "subCategories":[
+            {"subCategoryId":4,"name":"DVD"},
+            {"subCategoryId":5,"name":"BluRay"},
+            {"subCategoryId":6,"name":"Download"}
+        ]
+    }
+]
