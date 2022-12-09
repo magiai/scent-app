@@ -1,0 +1,51 @@
+.carousel {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.carousel__list {
+    list-style-type: none;
+    display: flex;
+    align-items: flex-start;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+}
+
+.open .carousel__list {
+    flex-wrap: wrap;
+}
+
+.carousel__list li::marker {
+    display: none;
+}
+
+.carousel.drag {
+    cursor: grabbing;
+}
+
+.carousel > button {
+    position: absolute;
+    z-index: 1;
+    height: var(--icon__size--min);
+    width: var(--icon__size--min);
+    border-radius: 50%;
+    box-shadow: 0.3em 0.3em 0.5em black;
+    cursor: pointer;
+}
+
+.button--left,
+.button--right {
+    /* height: calc(var(--svg__button__height) + var(--button--svg__label__height) + var(--space--s)); */
+    top: var(--space--m);
+}
+
+.button--right {
+    right: 0;
+}
+
+.button--down {
+    bottom: 0;
+    left: calc(50vw - var(--icon__size--min) / 2);
+}

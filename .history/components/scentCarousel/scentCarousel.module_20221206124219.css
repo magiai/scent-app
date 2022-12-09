@@ -1,0 +1,10 @@
+.carousel {
+    display: flex;
+    align-items: flex-start;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.carousel.open {
+    flex-wrap: wrap;
+}
