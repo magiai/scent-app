@@ -1,0 +1,72 @@
+.carousel {
+    display: flex;
+    width: 100%;
+    position: relative;
+    contain: layout;
+}
+
+.carouselList {
+    list-style-type: none;
+    display: flex;
+    align-items: flex-start;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+}
+
+.toggled .carouselList {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.carouselList li::marker {
+    display: none;
+}
+
+.carousel.drag {
+    cursor: grabbing;
+}
+
+.buttonLeft,
+.buttonRight,
+.buttonDown  {
+    position: absolute;
+    z-index: 1;
+    height: var(--icon__size--min);
+    width: var(--icon__size--min);
+    border-radius: 50%;
+    box-shadow: 0.3em 0.3em 0.5em black;
+    transition: transform 0.2s ease-in-out;
+    /* cursor: pointer; */
+}
+
+.buttonLeft,
+.buttonRight {
+    top: calc(var(--svg__button__height) + var(--button--svg__label__height) + var(--space--s) - var(--icon__size--min) / 2);
+}
+
+.buttonLeft {
+    left: var(--space--xs);
+}
+
+.buttonRight {
+    right: var(--space--xs);
+}
+
+.buttonDown {
+    bottom: 0;
+    left: calc(50% - var(--icon__size--min) / 2);
+}
+
+.toggled .buttonLeft {
+    transform: translateX(-150%);
+}
+
+.toggled .buttonRight {
+    transform: translateX(150%);
+}
+
+.toggled .buttonDown {
+    transform: rotateZ(180deg);
+}
+
