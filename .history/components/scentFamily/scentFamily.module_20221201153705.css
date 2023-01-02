@@ -1,0 +1,12 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color--secondary);
+}
+
+.section h2 {
+    background-color: white;
+    margin-block-start: 0.43em;
+    margin-block-end: 0.43em;
+}

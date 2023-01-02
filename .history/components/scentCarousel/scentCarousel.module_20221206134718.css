@@ -1,0 +1,21 @@
+.carousel {
+    display: flex;
+    width: 100%;
+}
+
+.carousel__list {
+    list-style-type: none;
+    display: flex;
+    align-items: flex-start;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+}
+
+.carousel__list.open {
+    flex-wrap: wrap;
+}
+
+.carousel__list li::marker {
+    display: none;
+}

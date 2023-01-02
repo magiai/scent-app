@@ -1,0 +1,92 @@
+html {
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family--base);
+    font-size: var(--font-size--base);
+    line-height: 1.5;
+	letter-spacing: 0.12em;
+	word-spacing: 0.16em;
+    color: var(--color--black);
+    background-color: var(--background-color);
+    margin: 0;
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+.svg__background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0.4;
+    z-index: -1;
+}
+
+p,
+li,
+h1, h2, h3, h4, h5 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+  margin-bottom: 0.65em;
+}
+
+h1 {
+    font-size: var(--font-size--h1);
+}
+
+h2 {
+    font-size: var(--font-size--h2);
+}
+
+h3 {
+    font-size: var(--font-size--h3);
+}
+
+h4 {
+    font-size: var(--font-size--h4);
+}
+
+h5 {
+    font-size: var(--font-size--h5);
+}
+
+a {
+    color: var(--color--primary);
+    padding-top: var(--space--s); 
+    padding-bottom: var(--space--s);             
+}
+
+a:hover, a:active, a:focus {
+    color: var(--color--primary--active);
+}
+
+button {
+    font-size: max(var(--font-size--base), 1em);
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: var(--color--secondary);
+    border-radius: 0.1rem;
+    border: var(--button__border);
+    line-height: 1;
+    cursor: pointer;
+}
+

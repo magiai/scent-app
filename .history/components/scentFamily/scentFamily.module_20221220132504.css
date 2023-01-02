@@ -1,0 +1,38 @@
+.section,
+.section h2 {
+    border-top-width: var(--button__border__width);
+    border-color: black;
+    border-style: double;
+}
+
+.section:last-of-type,
+.section h2 {
+    border-bottom-width: var(--button__border__width);
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color--secondary);
+    border-right-width: 0rem;
+    border-left-width: 0rem;
+    border-bottom-width: 0rem;
+    padding-bottom: var(--space--base);
+}
+
+.header {
+    width: 100%;
+}
+
+.section h2 {
+    background-color: white;
+    margin-block-start: 0.23em;
+    margin-block-end: 0;
+    padding-top: var(--space--xs);
+    padding-left: var(--space--xl);
+    padding-right: var(--space--xl);
+    border-right-width: var(--button__border__width);
+    border-left-width: var(--button__border__width);
+    line-height: 1;
+}
