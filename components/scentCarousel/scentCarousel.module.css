@@ -19,7 +19,8 @@
     justify-content: center;
 }
 
-.carouselList li::marker {
+.carouselList li::marker,
+.carouselList:empty ~ * {
     display: none;
 }
 

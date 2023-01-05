@@ -7,6 +7,8 @@ import { CarouselList } from './CarouselList'
 import { CarouselButtonNavigationLeft, 
         CarouselButtonNavigationRight,
         CarouselButtonToggle } from './CarouselButtons'
+import { useAppSelector } from '../../app/hooks'
+import { selectSearch } from "../../components/search/searchSlice"
 
 export const CarouselContext = createContext(false);
 
@@ -14,7 +16,7 @@ interface ICarouselProps {
     children: React.ReactNode,
 }
 
-export const InteractiveMarquee = ({
+export const Carousel = ({
     children
 }: ICarouselProps) => {
     const carouselRef = useRef(null)
@@ -22,6 +24,7 @@ export const InteractiveMarquee = ({
     const xVelocity = useRef(0)
     const [isCarouselExpanded, setCarouselIsExpanded] = useState(false)
     const prefersReducedMotion = useReducedMotion()
+    const selectPhrase = useAppSelector(selectSearch);
     
     const factor = {
         carouselSpeed: prefersReducedMotion ? 0.0011 : 0.2,
@@ -37,7 +40,7 @@ export const InteractiveMarquee = ({
     });
 
     const onWheel = (event) => {
-        if (isCarouselExpanded) return; 
+        if (isCarouselExpanded || selectPhrase !== '') return; 
         const normalizedScrollDistance = normalizeWheel(event);
         xVelocity.current = normalizedScrollDistance.pixelY * factor.wheelSpeed
     }
@@ -52,8 +55,9 @@ export const InteractiveMarquee = ({
     }
 
     useEffect(() => {
-        isCarouselExpanded ? speed.set(0) : speed.set(factor.carouselSpeed);
-    }, [isCarouselExpanded])
+        isCarouselExpanded ? speed.set(0) : speed.set(factor.carouselSpeed)
+        selectPhrase !== '' ? speed.set(0) : speed.set(factor.carouselSpeed)
+    }, [isCarouselExpanded || selectPhrase])
 
     const onDragStart = (event) => {
         slowDown.current = true
@@ -86,7 +90,7 @@ export const InteractiveMarquee = ({
     return (
         <CarouselContext.Provider value = {carouselContextValues}>
             <motion.div
-                className = { `${styles.carousel}  ${ !isCarouselExpanded ? styles.closed : styles.toggled }` }
+                className = { `${styles.carousel} ${ !isCarouselExpanded && selectPhrase === '' ? styles.closed : styles.toggled }` }
                 ref = { carouselRef }
                 onWheel = { onWheel }
                 drag = "x"
@@ -97,7 +101,7 @@ export const InteractiveMarquee = ({
                 dragElastic = { 0.000001 }
             >
                 <CarouselList content = { children } speed = { speed } /> 
-                { !isCarouselExpanded ? 
+                { !isCarouselExpanded && selectPhrase === '' ? 
                     <CarouselList content = {children} speed = { speed } />: <></>
                 }
                 <CarouselButtonNavigationLeft onHorizontalNavButtonClick = { onHorizontalNavButtonClick } />

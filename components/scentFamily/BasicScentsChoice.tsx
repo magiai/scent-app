@@ -1,13 +1,13 @@
 import styles from '../form/forms.module.css'
 import React from 'react'
 
-interface CarouselButtonToggleProps {
+interface ICarouselButtonToggleProps {
     toggleBasicScents: () => void,
 }
 
 export const BasicScentsChoice = ({
     toggleBasicScents
-}: CarouselButtonToggleProps) => {
+}: ICarouselButtonToggleProps) => {
 
     return (
         <label className = { styles['form-control'] }>

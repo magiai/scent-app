@@ -1,41 +1,52 @@
-import { useState } from 'react';
+import { useState, useMemo, useEffect } from 'react'
 import {
-  useAppDispatch,
-  useAppSelector,
-} from '../../app/hooks';
+  useAppDispatch
+} from '../../app/hooks'
 import {
   setSearchedPhrase,
-  selectSearch,
-} from './searchSlice';
-import styles from '../form/forms.module.css';
+  initialState
+} from './searchSlice'
+import styles from '../form/forms.module.css'
+import searchStyles from './search.module.css'
 
 const SearchEngine:React.FC = () => {
-    const dispatch = useAppDispatch();
-    const selectPhrase = useAppSelector(selectSearch);
-    const [phraseValue, setSearchValue] = useState<string>('owl');
+    const dispatch = useAppDispatch()
+    const [phraseValue, setSearchValue] = useState<string>(initialState.value)
 
     const handleSearchValueChange = (event: any) => {
-        setSearchValue(event?.target?.value);
-        dispatch(setSearchedPhrase(String(phraseValue)));
+        setSearchValue(event?.target?.value)
     }
 
+    const handleSearchValueSubmit = (event: any) => {
+      event.preventDefault()
+  }
+
+  useEffect(() => {
+    dispatch(setSearchedPhrase(String(phraseValue)))
+  }, [phraseValue])
+
     return (
-      <>
-        <h2>
-          The current phrase is { selectPhrase }
-        </h2>
-        <form>
-            <label className = { styles.label } htmlFor="search-input">Search Input</label>
+        <form 
+            role="search"
+            className = { searchStyles.form }
+            onSubmit = { handleSearchValueSubmit }    
+        >
+            <label className = { styles.label } htmlFor="search-input">Search for a scent</label>
             <input 
+                type="search" 
+                inputMode='search'
                 id="search-input" 
                 className = { styles.input }
-                type="search" 
                 value = { phraseValue }
                 onChange = { handleSearchValueChange }
-                inputMode='search'
             />
+            <button 
+                type='submit' 
+                name="submit-search" 
+                id="submit-search"
+            >Search
+            </button>
         </form>
-      </>
     );
   };
   

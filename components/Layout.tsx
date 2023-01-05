@@ -1,6 +1,6 @@
 import React from 'react';
-import Footer from './Footer';
-import Header from './Header';
+// import Footer from './Footer';
+// import Header from './Header';
 import styles from './layout.module.css'
 
 export default function Layout({
@@ -12,7 +12,7 @@ export default function Layout({
 }) {
     return (
         <div className = {styles.container}>
-            <Header/>
+            {/* <Header/> */}
             {children}
             {/* <Footer/> */}
         </div>

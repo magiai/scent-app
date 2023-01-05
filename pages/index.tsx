@@ -1,8 +1,9 @@
 import React from "react"
-import Head from 'next/head';
-import Layout from '../components/Layout';
-import { ScentFamily } from '../components/scentFamily/ScentFamily';
-import { scentFamiliesData } from '../app/scentFamieliesData';
+import Head from 'next/head'
+import Layout from '../components/Layout'
+import { ScentFamily } from '../components/scentFamily/ScentFamily'
+import { scentFamiliesData } from '../app/scentFamieliesData'
+import SearchEngine from "../components/search/SearchEngine"
 
 export default function Home() {
 
@@ -13,8 +14,10 @@ export default function Home() {
             </Head>
 
             <main>
+                <SearchEngine />
                 {
                     scentFamiliesData.map(scentFamily => {
+                       
                         return (
                             <ScentFamily 
                                 key = {scentFamily.scentFamilyId} 
