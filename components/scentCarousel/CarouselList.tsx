@@ -4,6 +4,8 @@ import { motion } from "framer-motion"
 import { useWindowSize } from "@react-hook/window-size"
 import styles from './scentCarousel.module.css'
 import { CarouselContext } from './Carousel'
+import { useAppSelector } from '../../app/hooks'
+import { selectSearch } from "../../components/search/searchSlice"
 
 interface CarouselListProps {
     content: React.ReactNode,
@@ -18,6 +20,7 @@ export const CarouselList = ({
     const rect = useRef<Object>({}) 
     const xAxisContentPosition = useRef<number>(0)
     const isCarouselExpanded = useContext(CarouselContext)
+    const selectPhrase = useAppSelector(selectSearch);
 
     const [width, height] = useWindowSize()
 
@@ -28,7 +31,7 @@ export const CarouselList = ({
 
     const setXAxisContentPosition = () => {
         const xPosition = calculteXAxisContentPosition()
-        if (xPosition < -100 || isCarouselExpanded) xAxisContentPosition.current = 0
+        if (xPosition < -100 || isCarouselExpanded || selectPhrase !== '') xAxisContentPosition.current = 0
         if (xPosition > 0) xAxisContentPosition.current = -rect.current.width
 
         carouselList.current.style.transform = `translate3d(${xPosition}%, 0, 0)`

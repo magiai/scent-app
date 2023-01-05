@@ -158,54 +158,44 @@ export const scentFamiliesData = [
     },
     {
         "scentFamilyId": 2,
-        "name":"herbal", 
+        "name":"green & herbal", 
         "note": "top",
         "scents":[
             {
                 "scentId": 16,
-                "name":"a",
-                "latinName": "Citrus bergamia",
-                "color": "#93c645",
-                "isBasic": true,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 19,
-                "name":"d",
-                "latinName": "Citrus × microcarpa",
-                "color": "#65820c",
-                "isBasic": true,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 17,
-                "name":"b",
-                "latinName": "Citrus × aurantium",
-                "color": "#f9bc58",
-                "isBasic": true,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 21,
-                "name":"f",
-                "latinName": "Citrus myrtifolia",
-                "color": "#dda501",
+                "name":"Agave",
+                "latinName": "Agave",
+                "color": "#739EA8",
                 "isBasic": false,
                 "image": null,
                 "description": null,
                 "referenceLink": null
             },
             {
+                "scentId": 17,
+                "name":"Algae",
+                "latinName": "Algae",
+                "color": "#95B90C",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 21,
+                "name":"Aloe Vera",
+                "latinName": "Aloe vera",
+                "color": "#7A9143",
+                "isBasic": true,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
                 "scentId": 27,
-                "name":"l",
-                "latinName": "Citrus macroptera",
-                "color": "#6fa153",
+                "name":"Ammophila, Beach Grass",
+                "latinName": "Ammophila arenaria",
+                "color": "#758651",
                 "isBasic": false,
                 "image": null,
                 "description": null,
@@ -213,19 +203,19 @@ export const scentFamiliesData = [
             },
             {
                 "scentId": 18,
-                "name":"c",
-                "latinName": "Citrus × sinensis",
-                "color": "#bc0a00",
-                "isBasic": true,
+                "name":"Angelica",
+                "latinName": "Angelica archangelica",
+                "color": "#B2C863",
+                "isBasic": false,
                 "image": null,
                 "description": null,
                 "referenceLink": null
             },
             {
                 "scentId": 22,
-                "name":"g",
-                "latinName": "Citrus medica",
-                "color": "#f0d93f",
+                "name":"Apple Mint, Pineapple Mint",
+                "latinName": "Mentha suaveolens",
+                "color": "#9CD965",
                 "isBasic": true,
                 "image": null,
                 "description": null,
@@ -310,7 +300,17 @@ export const scentFamiliesData = [
                 "image": null,
                 "description": null,
                 "referenceLink": null
-            }
+            },
+            {
+                "scentId": 19,
+                "name":"Basil",
+                "latinName": "Ocimum basilicum",
+                "color": "#62A300",
+                "isBasic": true,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
         ]
     }
 ]

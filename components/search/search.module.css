@@ -1,0 +1,31 @@
+.form {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-top: var(--space--xl);
+}
+
+.form label {
+    margin-right: var(--space--m);
+}
+
+@media only screen and (min-width: 769px) {
+    .form button {
+        margin-left: var(--space--s);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .form {
+        flex-direction: column;
+    }
+
+    .form label {
+        margin-bottom: var(--space--m);
+    }
+
+    .form input,
+    .form button {
+        width: 100%;
+    }
+}

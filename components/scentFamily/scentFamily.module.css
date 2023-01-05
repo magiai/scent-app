@@ -1,16 +1,16 @@
-.section,
-.section h2 {
+.details,
+.summary h2 {
     border-top-width: var(--button__border__width);
     border-color: black;
     border-style: double;
 }
 
-.section:last-of-type,
-.section h2 {
+.details:last-of-type,
+.summary h2 {
     border-bottom-width: var(--button__border__width);
 }
 
-.section {
+.details {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,17 +21,30 @@
     padding-bottom: var(--space--base);
 }
 
-.header {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
+.details:not([open]) .summary label {
+    display: none;
+}
+
+.summary {
+    cursor: pointer;
     padding-left: var(--space--xs);
     padding-right: var(--space--xs);
 }
 
-.section h2 {
+.summary div {
+    width: calc(100% - var(--font-size--h2));
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+
+}
+
+.summary::marker {
+    font-size: var(--font-size--h2);
+}
+
+.summary h2 {
     background-color: white;
     margin-block-start: 0.23em;
     margin-block-end: 0;

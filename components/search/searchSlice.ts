@@ -8,8 +8,8 @@ import {
     value: string;
   };
   
-  const initialState: SearchEngineState = {
-    value: 'owl',
+  export const initialState: SearchEngineState = {
+    value: '',
   };
 
   export const searchEngineSlice = createSlice({
