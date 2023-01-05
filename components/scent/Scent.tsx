@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import styles from './scent.module.css'
 import { ScentImage } from './ScentImage'
 import { ScentLabel } from './ScentLabel'
-import { ScentFamilyContext } from '../scentFamily/ScentFamily'
+import { ScentFamilyContext } from '../scentFamily/scentFamilyDecorator'
 
 interface ScentProps {
     liquidColor: string

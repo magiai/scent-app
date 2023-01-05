@@ -20,7 +20,7 @@ export const CarouselList = ({
     const rect = useRef<Object>({}) 
     const xAxisContentPosition = useRef<number>(0)
     const isCarouselExpanded = useContext(CarouselContext)
-    const selectPhrase = useAppSelector(selectSearch);
+    const searchedPhrase = useAppSelector(selectSearch);
 
     const [width, height] = useWindowSize()
 
@@ -31,7 +31,7 @@ export const CarouselList = ({
 
     const setXAxisContentPosition = () => {
         const xPosition = calculteXAxisContentPosition()
-        if (xPosition < -100 || isCarouselExpanded || selectPhrase !== '') xAxisContentPosition.current = 0
+        if (xPosition < -100 || isCarouselExpanded || searchedPhrase !== '') xAxisContentPosition.current = 0
         if (xPosition > 0) xAxisContentPosition.current = -rect.current.width
 
         carouselList.current.style.transform = `translate3d(${xPosition}%, 0, 0)`
