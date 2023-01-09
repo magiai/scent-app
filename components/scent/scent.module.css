@@ -42,7 +42,6 @@ svg.svg--bottle {
     cursor: grab;
 }
 
-.button:focus #bottle__path,
 .carousel:not(.drag) .button:hover #bottle__path,
 .chosen #bottle__path {
     transform: rotateZ(20deg) translateX(0%) translateY(-3%) scale(0.9);
