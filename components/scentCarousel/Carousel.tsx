@@ -27,7 +27,7 @@ export const Carousel = ({
     const selectPhrase = useAppSelector(selectSearch);
     
     const factor = {
-        carouselSpeed: prefersReducedMotion ? 0.0011 : 0.2,
+        carouselSpeed: prefersReducedMotion ? 0.0011 : 0.15,
         threshold: 0.001,
         wheelSpeed: 1.5,
         dragSpeed: 1.2
@@ -67,7 +67,6 @@ export const Carousel = ({
 
     const onDrag = (event, info) => {
         speed.set(factor.dragSpeed * -info.delta.x)
-        console.log(-info.delta.x)
     }
 
     const onDragEnd = (event) => {

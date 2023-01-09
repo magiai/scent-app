@@ -8,14 +8,14 @@ interface ScentProps {
     liquidColor: string
     label: string
     latinName: string
-    isBasic: boolean
+    isBasicScent: boolean
 }
 
 export const Scent = ({
     liquidColor,
     label,
     latinName,
-    isBasic,
+    isBasicScent,
     ...props
 }: ScentProps) => {
     const [isScentChosen, setChosenScent] = useState<boolean>(false)
@@ -29,7 +29,7 @@ export const Scent = ({
     return (
         <button
             type="button"
-            className = {`${styles.button} ${isScentChosen ? styles.chosen : ''} ${showBasicScents && !isBasic ? styles.buttonHidden : ''}`}
+            className = {`${ styles.button } ${ isScentChosen ? styles.chosen : '' } ${ showBasicScents && !isBasicScent ? styles.buttonHidden : '' }`}
             onClick = { handleButtonClick }
             {...props}>
 

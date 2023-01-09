@@ -42,7 +42,7 @@ export const ScentFamily = ({
                                 label = { scent.name }
                                 latinName = { scent.latinName }
                                 liquidColor = { scent.color }
-                                isBasic = { scent.isBasic }
+                                isBasicScent = { scent.isBasic }
                             />  
                         </li>
                     )

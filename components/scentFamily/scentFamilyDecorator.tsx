@@ -17,7 +17,7 @@ export const ScentFamilyDecorator = ({
     children
 }: IScentFamilyDecorator) => {
     const [showBasicScents, setShowBasicScent] = useState(false)
-    const scentFamilyContextValues = showBasicScents
+    const scentFamilyContextValue = showBasicScents
     let isOpen = resultsLength > 0 ? true : false;  
 
     const toggleBasicScents = () => {
@@ -25,7 +25,7 @@ export const ScentFamilyDecorator = ({
     }
 
     return (
-        <ScentFamilyContext.Provider value = { scentFamilyContextValues }>
+        <ScentFamilyContext.Provider value = { scentFamilyContextValue }>
             <details open = { isOpen } className = { styles.details }>
                 <summary className = { styles.summary }>
                     <div>
