@@ -1,5 +1,5 @@
 import searchEngineReducer from '../components/search/searchSlice';
-
+import chosenScentsReducer from  '../components/scentFamily/scent/scentSlice'
 import {
     Action,
     configureStore,
@@ -9,6 +9,7 @@ import {
   export const store = configureStore({
     reducer: {
         searchEngine: searchEngineReducer,
+        chosenScents: chosenScentsReducer,
     },
   });
   

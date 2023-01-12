@@ -1,6 +1,6 @@
 import React from "react"
-import { Scent } from '../scent/Scent'
-import { ScentFamilyDecorator } from "./scentFamilyDecorator"
+import { Scent } from './scent/Scent'
+import { ScentFamilyDecorator } from "./ScentFamilyDecorator"
 import { useAppSelector } from '../../app/hooks';
 import { selectSearch } from "../../components/search/searchSlice";
 
@@ -42,6 +42,7 @@ export const ScentFamily = ({
                                 label = { scent.name }
                                 latinName = { scent.latinName }
                                 liquidColor = { scent.color }
+                                note = { note }
                                 isBasicScent = { scent.isBasic }
                             />  
                         </li>

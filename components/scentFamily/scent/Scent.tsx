@@ -2,12 +2,15 @@ import React, { useContext, useState } from 'react'
 import styles from './scent.module.css'
 import { ScentImage } from './ScentImage'
 import { ScentLabel } from './ScentLabel'
-import { ScentFamilyContext } from '../scentFamily/scentFamilyDecorator'
+import { ScentFamilyContext } from '../ScentFamilyDecorator'
+import { addChosenScent } from './scentSlice'
+import { useAppDispatch } from '../../../app/hooks'
 
-interface ScentProps {
+interface IScentProps {
     liquidColor: string
     label: string
     latinName: string
+    note: string
     isBasicScent: boolean
 }
 
@@ -15,13 +18,18 @@ export const Scent = ({
     liquidColor,
     label,
     latinName,
+    note,
     isBasicScent,
     ...props
-}: ScentProps) => {
+}: IScentProps) => {
     const [isScentChosen, setChosenScent] = useState<boolean>(false)
     const showBasicScents = useContext(ScentFamilyContext)
+    const dispatch = useAppDispatch()
+    let proportion = 1
+    const chosenScentData = [liquidColor ,note, label, proportion]
 
     const handleButtonClick = (event) => {
+        dispatch(addChosenScent(chosenScentData))
         // addScentToComposition(label, liquidColor)
         setChosenScent(prevScentState => !prevScentState)
     }

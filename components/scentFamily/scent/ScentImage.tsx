@@ -23,9 +23,9 @@ export const ScentImage = ({
                 <filter id='noiseFilter' x="-10%" y="-10%" width="120%" height="120%">
                     <feTurbulence 
                         type='turbulence' 
-                        baseFrequency='0.0005' 
+                        baseFrequency='1' 
                         numOctaves='1'
-                        seed="1"
+                        seed="5"
                         stitchTiles='stitch'
                         result="noise"
                     />

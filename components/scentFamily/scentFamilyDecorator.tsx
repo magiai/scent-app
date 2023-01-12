@@ -1,7 +1,7 @@
 import React, { Suspense, useState, createContext } from "react"
 import styles from './scentFamily.module.css'
 import { BasicScentsChoice } from './BasicScentsChoice'
-import { Carousel } from '../scentCarousel/Carousel'
+import { Carousel } from './scentCarousel/Carousel'
 
 interface IScentFamilyDecorator {
     scentFamilyName: string,
