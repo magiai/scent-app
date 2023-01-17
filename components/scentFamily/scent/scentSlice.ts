@@ -22,8 +22,16 @@ export const chosenScentsSlice = createSlice({
 
     reducers: {
         addChosenScent: (state, action) => {
-            const scent = action.payload
-            state.chosenScents.push({ id: scent[0], note: scent[1], label: scent[2], proportion: scent[3] })
+            const newScent = action.payload
+            const checkIfAlreadyAdded = state.chosenScents.findIndex((scent) => scent.id === newScent[0])
+            if (checkIfAlreadyAdded !== -1) return
+
+            state.chosenScents.push({ 
+                                    id: newScent[0], 
+                                    note: newScent[1], 
+                                    label: newScent[2], 
+                                    proportion: newScent[3] 
+                                })
         },
 
         removeScent: (state, action) => {

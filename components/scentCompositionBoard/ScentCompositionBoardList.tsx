@@ -20,7 +20,7 @@ export const ScentCompositionBoardList = ({
                     if (scent.note === note) {
                         return (
                             <ScentCompositionBoardListItem 
-                                key = { scent.id } 
+                                key = { `${ scent.id } -chosenScent` } 
                                 scentId = { scent.id } 
                                 scentLabel = { scent.label }/>
                         )

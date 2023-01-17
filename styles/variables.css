@@ -68,6 +68,8 @@
     --button--svg__label__height: 4.4rem;
 
     --icon__size--min: 4.8rem;
+
+    --aside__summary__width: calc(var(--font-size--h2) - var(--space--xs));
 }
 
 @media only screen and (min-width: 768px) {

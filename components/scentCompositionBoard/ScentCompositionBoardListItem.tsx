@@ -28,19 +28,23 @@ export const ScentCompositionBoardListItem = ({
     }
 
     return (
-        <li className = { styles.listItem } key = { scentId }>
+        <li className = { styles.listItem }>
             <span>{ scentLabel }</span>
-            <label className = { formStyles.label } htmlFor={`proportion-input-${scentId}`}>
-                amount:
-            </label>
-            <input
-                type="number"
-                id = { `proportion-input-${scentId}` }
-                className = { formStyles.input }
-                value = { proportions[scentId] ?? 1 }
-                onChange = { event => handleProportionsChange(event, scentId) }
-            />
-            <button onClick = { () => handleDeleteScent(scentId) }>Delete <i>X</i></button>
+            <div className = { styles.proportions }>
+                <input
+                    type="number"
+                    id = { `proportion-input-${scentId}` }
+                    className = { formStyles.input }
+                    value = { proportions[scentId] ?? 1 }
+                    onChange = { event => handleProportionsChange(event, scentId) }
+                    />
+                <label className = { formStyles.label } htmlFor={`proportion-input-${scentId}`}>
+                    ml
+                </label>
+            </div>
+            <button className = 'button--delete' onClick = { () => handleDeleteScent(scentId) }>
+                <i className = 'icon--close' >x</i> Delete
+            </button>
         </li>
     )
 } 

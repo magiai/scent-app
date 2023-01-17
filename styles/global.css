@@ -8,8 +8,9 @@ html {
     box-sizing: border-box;
 }
 
-/* :global(.myclass) {
+/* :global(.icon--close) {
     text-decoration: underline;
+    background-color: red;
 } */
 
 body {
