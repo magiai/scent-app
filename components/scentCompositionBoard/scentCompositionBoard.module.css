@@ -1,0 +1,80 @@
+.aside {
+    --aside__width: min(calc(var(--font-size--h2) + 3 * var(--svg__button__width) + var(--aside__summary__width) + var(--space--m)), 100vw);
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    max-width: var(--aside__width);
+    height: 100vh;
+    height: 100dvh;
+    background-color: var(--background-color);
+    overflow-y: scroll;
+}
+
+.aside h2 {
+    writing-mode: vertical-lr;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-bottom: 0;
+}
+
+.aside h3::first-letter {
+    text-transform: uppercase;
+}
+
+.details {
+    min-width: var(--aside__summary__width);
+}
+
+.details summary {
+    color: white;
+    text-align: center;
+    background-color: black;
+    position: fixed;
+    height: 100vh;
+    height: 100dvh;
+}
+
+.details summary::marker {
+    font-size: var(--font-size--h2);
+}
+
+.details[open] summary::marker {
+    transform: rotateZ(180deg);
+}
+
+.notes {
+    padding-left: calc(var(--aside__summary__width) + var(--space--xl));
+}
+
+.list {
+    margin-block-start: 0;
+    padding-inline-start: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.listItem {
+    display: grid;
+    flex-direction: column;
+    width: var(--svg__button__width);
+    border: 0.1rem solid currentColor;
+    padding-top: var(--space--s);
+    padding-right: var(--space--s);
+    padding-left: var(--space--s);
+}
+
+.listItem input {
+    width: 6rem;
+    margin-right: var(--space--xs);
+}
+
+.listItem button {
+    align-self: flex-end;
+}
+
+.proportions {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+}

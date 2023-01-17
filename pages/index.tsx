@@ -4,6 +4,7 @@ import Layout from '../components/Layout'
 import { ScentFamily } from '../components/scentFamily/ScentFamily'
 import { scentFamiliesData } from '../app/scentFamieliesData'
 import SearchEngine from "../components/search/SearchEngine"
+import { ScentCompositionBoard } from "../components/scentCompositionBoard/ScentCompositionBoard"
 
 export default function Home() {
 
@@ -29,6 +30,7 @@ export default function Home() {
                     })
 
                 }
+                <ScentCompositionBoard />
             </main>
 
         </Layout>

@@ -1,16 +1,16 @@
 import {
     createSlice,
     PayloadAction,
-  } from '@reduxjs/toolkit';
-  import type { RootState } from '../../app/store';
+  } from '@reduxjs/toolkit'
+  import type { RootState } from '../../app/store'
 
   export type SearchEngineState = {
-    value: string;
-  };
+    value: string
+  }
   
   export const initialState: SearchEngineState = {
     value: '',
-  };
+  }
 
   export const searchEngineSlice = createSlice({
     name: 'searchEngine',
@@ -19,15 +19,15 @@ import {
     reducers: {
 
       setSearchedPhrase: (state, action: PayloadAction<string>) => {
-        state.value = action.payload;
+        state.value = action.payload
       },
     },
-  });
+  })
 
   export const {
     setSearchedPhrase,
-  } = searchEngineSlice.actions;
+  } = searchEngineSlice.actions
   
-  export const selectSearch = (state: RootState) => state.searchEngine.value;
+  export const selectSearch = (state: RootState) => state.searchEngine.value
   
-  export default searchEngineSlice.reducer;
+  export default searchEngineSlice.reducer

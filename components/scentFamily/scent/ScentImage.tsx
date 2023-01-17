@@ -13,7 +13,7 @@ export const ScentImage = ({
 
     return (
             <svg 
-                className={ styles['svg--bottle'] }
+                className = { styles.bottle }
                 xmlns="http://www.w3.org/2000/svg" 
                 version="1.1" 
                 x="0px" 
@@ -23,9 +23,9 @@ export const ScentImage = ({
                 <filter id='noiseFilter' x="-10%" y="-10%" width="120%" height="120%">
                     <feTurbulence 
                         type='turbulence' 
-                        baseFrequency='0.0005' 
+                        baseFrequency='1' 
                         numOctaves='1'
-                        seed="1"
+                        seed="5"
                         stitchTiles='stitch'
                         result="noise"
                     />

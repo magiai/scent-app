@@ -169,7 +169,7 @@ export const scentFamiliesData = [
     {
         "scentFamilyId": 2,
         "name":"citrus", 
-        "note": "top",
+        "note": "middle",
         "scents":[
             {
                 "scentId": 2001,
@@ -486,7 +486,7 @@ export const scentFamiliesData = [
     {
         "scentFamilyId": 3,
         "name":"fruits", 
-        "note": "top",
+        "note": "base",
         "scents":[
             {
                 "scentId": 31,

@@ -19,6 +19,7 @@
     border-left-width: 0rem;
     border-bottom-width: 0rem;
     padding-bottom: var(--space--base);
+    width: calc(100vw - var(--aside__summary__width) - var(--space--l));
 }
 
 .details:not([open]) .summary label {

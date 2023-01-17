@@ -1,0 +1,54 @@
+import React, { useContext, useState } from 'react'
+import styles from './scent.module.css'
+import { ScentImage } from './ScentImage'
+import { ScentLabel } from './ScentLabel'
+import { ScentFamilyContext } from '../ScentFamilyDecorator'
+import { addChosenScent } from './scentSlice'
+import { useAppDispatch } from '../../../app/hooks'
+import { useAppSelector } from "../../../app/hooks"
+import { selectChosenScents } from './scentSlice'
+import { removeScent } from './scentSlice'
+
+interface IScentProps {
+    liquidColor: string
+    label: string
+    latinName: string
+    note: string
+    isBasicScent: boolean
+}
+
+export const Scent = ({
+    liquidColor,
+    label,
+    latinName,
+    note,
+    isBasicScent,
+    ...props
+}: IScentProps) => {
+    const showBasicScents = useContext(ScentFamilyContext)
+    const dispatch = useAppDispatch()
+    const selectedScents = useAppSelector(selectChosenScents)
+    const chosenScentsList = Object.values(selectedScents)[0]
+    let proportion = 1
+    const chosenScentDataForDispach = [liquidColor ,note, label, proportion]
+    const isChosen = chosenScentsList.findIndex((scent) => scent.id === liquidColor) !== -1
+
+    const handleButtonClick = () => {
+        isChosen ? dispatch(removeScent(liquidColor)) : dispatch(addChosenScent(chosenScentDataForDispach))
+    }
+
+    return (
+        <button
+            type="button"
+            className = {`${ styles.button } ${ isChosen ? styles.chosen : '' } ${ showBasicScents && !isBasicScent ? styles.buttonHidden : '' }`}
+            onClick = { handleButtonClick }
+            {...props}>
+
+            <ScentImage liquidColor = { liquidColor } />
+            <ScentLabel 
+                label = { label } 
+                latinName = { latinName }
+            />
+        </button>
+    );
+};

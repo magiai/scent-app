@@ -7,8 +7,8 @@ import { CarouselList } from './CarouselList'
 import { CarouselButtonNavigationLeft, 
         CarouselButtonNavigationRight,
         CarouselButtonToggle } from './CarouselButtons'
-import { useAppSelector } from '../../app/hooks'
-import { selectSearch } from "../../components/search/searchSlice"
+import { useAppSelector } from '../../../app/hooks'
+import { selectSearch } from "../../search/searchSlice"
 
 export const CarouselContext = createContext(false);
 

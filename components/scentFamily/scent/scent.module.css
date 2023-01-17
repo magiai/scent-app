@@ -14,7 +14,7 @@
     transition-timing-function: ease-out;
 }
 
-svg.svg--bottle {
+.bottle {
     display: flex;
     width: var(--svg__button__width);
     height: var(--svg__button__height);
@@ -26,6 +26,13 @@ svg.svg--bottle {
     border-left-width: var(--button__border__width);
     border-color: black;
     border-style: solid;
+}
+
+.bottle:hover {
+    width: 100%;
+    background-color: black;
+    opacity: 0.4;
+    color: white;
 }
 
 #bottle__path {
