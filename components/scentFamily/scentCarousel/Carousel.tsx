@@ -10,7 +10,7 @@ import { CarouselButtonNavigationLeft,
 import { useAppSelector } from '../../../app/hooks'
 import { selectSearch } from "../../search/searchSlice"
 
-export const CarouselContext = createContext(false);
+export const CarouselContext = createContext([]);
 
 interface ICarouselProps {
     children: React.ReactNode,
@@ -23,6 +23,7 @@ export const Carousel = ({
     const slowDown = useRef(false)
     const xVelocity = useRef(0)
     const [isCarouselExpanded, setCarouselIsExpanded] = useState(false)
+    const [shouldBeLooping, setLoop] = useState(false)
     const prefersReducedMotion = useReducedMotion()
     const selectPhrase = useAppSelector(selectSearch);
     
@@ -30,7 +31,7 @@ export const Carousel = ({
         carouselSpeed: prefersReducedMotion ? 0.0011 : 0.15,
         threshold: 0.001,
         wheelSpeed: 1.5,
-        dragSpeed: 1.2
+        dragSpeed: 1.5
     };
 
     const speed = useSpring(factor.carouselSpeed, {
@@ -41,12 +42,21 @@ export const Carousel = ({
 
     const onWheel = (event) => {
         if (isCarouselExpanded || selectPhrase !== '') return; 
+        
         const normalizedScrollDistance = normalizeWheel(event);
         xVelocity.current = normalizedScrollDistance.pixelY * factor.wheelSpeed
+        setLoop(true)
+        setTimeout(() => {
+            setLoop(false)
+        }, 3000)
     }
 
     const onHorizontalNavButtonClick = (velocityValue: number) => {
         xVelocity.current = velocityValue;
+        setLoop(true)
+        setTimeout(() => {
+            setLoop(false)
+        }, 500)
         return xVelocity.current
     }
 
@@ -55,14 +65,13 @@ export const Carousel = ({
     }
 
     useEffect(() => {
-        isCarouselExpanded ? speed.set(0) : speed.set(factor.carouselSpeed)
-        selectPhrase !== '' ? speed.set(0) : speed.set(factor.carouselSpeed)
+        setLoop(false)
     }, [isCarouselExpanded || selectPhrase])
 
     const onDragStart = (event) => {
         slowDown.current = true
         carouselRef.current.classList.add("drag")
-        speed.set(0);
+        setLoop(true)
     }
 
     const onDrag = (event, info) => {
@@ -72,7 +81,7 @@ export const Carousel = ({
     const onDragEnd = (event) => {
         slowDown.current = false
         carouselRef.current.classList.remove("drag")
-        xVelocity.current = factor.carouselSpeed
+        setLoop(false)
     }
 
     const loop = () => {
@@ -84,7 +93,7 @@ export const Carousel = ({
 
     useRafLoop(loop, true);
 
-    const carouselContextValues = isCarouselExpanded
+    const carouselContextValues = [isCarouselExpanded, shouldBeLooping]
 
     return (
         <CarouselContext.Provider value = {carouselContextValues}>
