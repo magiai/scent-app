@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useContext } from "react"
+import React, { useRef, useEffect, useContext, useMemo } from "react"
 import { useRafLoop } from "react-use"
 import { motion } from "framer-motion"
 import { useWindowSize } from "@react-hook/window-size"
@@ -17,11 +17,11 @@ export const CarouselList = ({
     speed,
 }: CarouselListProps) => {
     const carouselList = useRef<any>(null)
-    const rect = useRef<Object>({}) 
+    const rect = useRef<Object>({})
+    const frame = useRef<number>(0)
     const xAxisContentPosition = useRef<number>(0)
-    const isCarouselExpanded = useContext(CarouselContext)
+    const [isCarouselExpanded, shouldBeLooping] = useContext(CarouselContext)
     const searchedPhrase = useAppSelector(selectSearch);
-
     const [width, height] = useWindowSize()
 
     const calculteXAxisContentPosition = () => {
@@ -31,23 +31,35 @@ export const CarouselList = ({
 
     const setXAxisContentPosition = () => {
         const xPosition = calculteXAxisContentPosition()
-        if (xPosition < -100 || isCarouselExpanded || searchedPhrase !== '') xAxisContentPosition.current = 0
+        if (xPosition < -100) xAxisContentPosition.current = 0
         if (xPosition > 0) xAxisContentPosition.current = -rect.current.width
 
         carouselList.current.style.transform = `translate3d(${xPosition}%, 0, 0)`
     };
-
+    
     useEffect(() => {
         rect.current = carouselList.current.getBoundingClientRect()
     }, [width, height])
 
-    const loop = () => {
-        xAxisContentPosition.current -= speed.get()
-        if (!carouselList.current || !rect.current) return
-        setXAxisContentPosition()
-    };
+    useEffect(() => {
+        xAxisContentPosition.current = 0
+    }, [isCarouselExpanded || searchedPhrase])
 
-    useRafLoop(loop, true)
+    const stopLooping = () => {
+        cancelAnimationFrame(frame.current)
+        frame.current = undefined
+    }
+
+    const loop = () => {
+        if (!carouselList.current || !rect.current) return
+        xAxisContentPosition.current += speed.get()
+        setXAxisContentPosition()
+        frame.current = requestAnimationFrame(loop)
+    }
+   
+    useEffect(() => {
+        shouldBeLooping ? loop() : stopLooping()
+    }, [shouldBeLooping])
 
     return (
         // https://codesandbox.io/s/framer-motion-2-layout-animations-kij8p?from-embed
