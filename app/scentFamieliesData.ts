@@ -1,175 +1,8 @@
 export const scentFamiliesData = [
     {
-        "scentFamilyId": 1,
-        "name":"green & herbal", 
-        "note": "top",
-        "scents":[
-            {
-                "scentId": 1001,
-                "name":"Agave",
-                "latinName": "Agave",
-                "color": "#739EA8",
-                "isBasic": false,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 1002,
-                "name":"Algae",
-                "latinName": "Algae",
-                "color": "#95B90C",
-                "isBasic": false,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 1003,
-                "name":"Aloe Vera",
-                "latinName": "Aloe vera",
-                "color": "#7A9143",
-                "isBasic": true,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 1004,
-                "name":"Ammophila, Beach Grass",
-                "latinName": "Ammophila arenaria",
-                "color": "#758651",
-                "isBasic": false,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 1005,
-                "name":"Angelica",
-                "latinName": "Angelica archangelica",
-                "color": "#B2C863",
-                "isBasic": false,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 1006,
-                "name":"Apple Mint, Pineapple Mint",
-                "latinName": "Mentha suaveolens",
-                "color": "#9CD965",
-                "isBasic": true,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 1007,
-                "name":"Arnica, Wolf's Bane",
-                "latinName": "Arnica montana",
-                "color": "#F8CE26",
-                "isBasic": false,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 1008,
-                "name":"Artemisia, Wormwood",
-                "latinName": "Artemisia absinthium",
-                "color": "#8BBEAD",
-                "isBasic": false,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 1009,
-                "name":"Asparagus",
-                "latinName": "Asparagus Officinalis",
-                "color": "#7AB344",
-                "isBasic": false,
-                "image": null,
-                "description": "",
-                "referenceLink": null
-            },
-            {
-                "scentId": 1010,
-                "name":"Tea Plant",
-                "latinName": "Camellia Sinensis",
-                "color": "#489A23",
-                "isBasic": true,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 1011,
-                "name":"Avocado",
-                "latinName": "Persea americana",
-                "color": "#548F2A",
-                "isBasic": false,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 1012,
-                "name":"Banana leave",
-                "latinName": "Musa acuminate",
-                "color": "#7AAB5E",
-                "isBasic": false,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 1013,
-                "name":"Barley",
-                "latinName": "Hordeum vulgare",
-                "color": "#DADF87",
-                "isBasic": false,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 1014,
-                "name":"Basil",
-                "latinName": "Ocimum basilicum",
-                "color": "#62A300",
-                "isBasic": true,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 1015,
-                "name":"West Indian Bay Tree, Bay Rum Tree",
-                "latinName": "Pimenta racemosa",
-                "color": "#8DBD33",
-                "isBasic": false,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-            {
-                "scentId": 1016,
-                "name":"Betel Leaf",
-                "latinName": "Piper Betle",
-                "color": "#60A609",
-                "isBasic": false,
-                "image": null,
-                "description": null,
-                "referenceLink": null
-            },
-        ]
-    },   
-    {
         "scentFamilyId": 2,
         "name":"citrus", 
-        "note": "middle",
+        "note": "top",
         "scents":[
             {
                 "scentId": 2001,
@@ -486,10 +319,10 @@ export const scentFamiliesData = [
     {
         "scentFamilyId": 3,
         "name":"fruits", 
-        "note": "base",
+        "note": "top",
         "scents":[
             {
-                "scentId": 31,
+                "scentId": 3001,
                 "name":"Acai Berry",
                 "latinName": "Euterpe Oleracea",
                 "color": "#333237",
@@ -499,7 +332,7 @@ export const scentFamiliesData = [
                 "referenceLink": null
             },
             {
-                "scentId": 32,
+                "scentId": 3002,
                 "name":"Acerola, Barbados Cherry",
                 "latinName": "Malpighia emarginata",
                 "color": "#FE482E",
@@ -509,7 +342,7 @@ export const scentFamiliesData = [
                 "referenceLink": null
             },
             {
-                "scentId": 33,
+                "scentId": 3003,
                 "name":"Apple",
                 "latinName": "Malus domestica",
                 "color": "#FD6565",
@@ -519,11 +352,292 @@ export const scentFamiliesData = [
                 "referenceLink": null
             },
             {
-                "scentId": 34,
+                "scentId": 3004,
                 "name":"Apricot",
                 "latinName": "Prunus armeniaca",
                 "color": "#FE9601",
                 "isBasic": true,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+        ]
+    },
+    {
+        "scentFamilyId": 1,
+        "name":"green & herbal", 
+        "note": "middle",
+        "scents":[
+            {
+                "scentId": 1001,
+                "name":"Agave",
+                "latinName": "Agave",
+                "color": "#739EA8",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 1002,
+                "name":"Algae",
+                "latinName": "Algae",
+                "color": "#95B90C",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 1003,
+                "name":"Aloe Vera",
+                "latinName": "Aloe vera",
+                "color": "#7A9143",
+                "isBasic": true,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 1004,
+                "name":"Ammophila, Beach Grass",
+                "latinName": "Ammophila arenaria",
+                "color": "#758651",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 1005,
+                "name":"Angelica",
+                "latinName": "Angelica archangelica",
+                "color": "#B2C863",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 1006,
+                "name":"Apple Mint, Pineapple Mint",
+                "latinName": "Mentha suaveolens",
+                "color": "#9CD965",
+                "isBasic": true,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 1007,
+                "name":"Arnica, Wolf's Bane",
+                "latinName": "Arnica montana",
+                "color": "#F8CE26",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 1008,
+                "name":"Artemisia, Wormwood",
+                "latinName": "Artemisia absinthium",
+                "color": "#8BBEAD",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 1009,
+                "name":"Asparagus",
+                "latinName": "Asparagus Officinalis",
+                "color": "#7AB344",
+                "isBasic": false,
+                "image": null,
+                "description": "",
+                "referenceLink": null
+            },
+            {
+                "scentId": 1010,
+                "name":"Tea Plant",
+                "latinName": "Camellia Sinensis",
+                "color": "#489A23",
+                "isBasic": true,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 1011,
+                "name":"Avocado",
+                "latinName": "Persea americana",
+                "color": "#548F2A",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 1012,
+                "name":"Banana leave",
+                "latinName": "Musa acuminate",
+                "color": "#7AAB5E",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 1013,
+                "name":"Barley",
+                "latinName": "Hordeum vulgare",
+                "color": "#DADF87",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 1014,
+                "name":"Basil",
+                "latinName": "Ocimum basilicum",
+                "color": "#62A300",
+                "isBasic": true,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 1015,
+                "name":"West Indian Bay Tree, Bay Rum Tree",
+                "latinName": "Pimenta racemosa",
+                "color": "#8DBD33",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 1016,
+                "name":"Betel Leaf",
+                "latinName": "Piper Betle",
+                "color": "#60A609",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+        ]
+    }, 
+    {
+        "scentFamilyId": 4,
+        "name":"flowers", 
+        "note": "middle",
+        "scents":[
+            {
+                "scentId": 4001,
+                "name":"Acacia",
+                "latinName": "Acacia Farnesiana",
+                "color": "#CECDCB",
+                "isBasic": true,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 4002,
+                "name":"Aglaia",
+                "latinName": "Aglaia odorata",
+                "color": "#F3F082",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 4003,
+                "name":"Almond Blossom",
+                "latinName": "Prunus amygdalus",
+                "color": "#EDDECD",
+                "colorSecond": "#e97e9d",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 4004,
+                "name":"Althaea",
+                "latinName": "Althaea",
+                "color": "#EFECF3",
+                "colorSecond": "#521A22",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 4005,
+                "name":"Amarillys, Lily of the Palace",
+                "latinName": "Hippeastrum aulicum",
+                "color": "#f93736",
+                "colorSecond": "#7bb53d",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 4006,
+                "name":"Poppy anemone",
+                "latinName": "Anemone coronaria",
+                "color": "#7c74ea",
+                "colorSecond": "#030c2b",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 4007,
+                "name":"Angel's trumpets",
+                "latinName": "Brugmansia",
+                "color": "#ffc75c",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 4008,
+                "name":"Apple Blossom",
+                "latinName": "Malus domestica",
+                "color": "#fbf9f8",
+                "colorSecond": "#f8f0b5",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 4009,
+                "name":"Apricot Blossom",
+                "latinName": "Prunus mume",
+                "color": "#eeeff3",
+                "colorSecond": "#f1b947",
+                "isBasic": false,
+                "image": null,
+                "description": null,
+                "referenceLink": null
+            },
+            {
+                "scentId": 4010,
+                "name":"Arum Lily, Calla Lily",
+                "latinName": "Zantedeschia aethiopica",
+                "color": "#fafafa",
+                "colorSecond": "#facc69",
+                "isBasic": false,
                 "image": null,
                 "description": null,
                 "referenceLink": null

@@ -2,15 +2,13 @@ import React, { useContext, useState } from 'react'
 import styles from './scent.module.css'
 import { ScentImage } from './ScentImage'
 import { ScentLabel } from './ScentLabel'
-import { ScentFamilyContext } from '../ScentFamilyDecorator'
-import { addChosenScent } from './scentSlice'
-import { useAppDispatch } from '../../../app/hooks'
-import { useAppSelector } from "../../../app/hooks"
-import { selectChosenScents } from './scentSlice'
-import { removeScent } from './scentSlice'
+import { ScentFamilyContext } from './../scentFamilyDecorator'
+import { useAppDispatch, useAppSelector } from '../../../app/hooks'
+import { selectChosenScents, addChosenScent, removeScent } from './scentSlice'
 
 interface IScentProps {
     liquidColor: string
+    liquidColorSecond: string
     label: string
     latinName: string
     note: string
@@ -19,6 +17,7 @@ interface IScentProps {
 
 export const Scent = ({
     liquidColor,
+    liquidColorSecond,
     label,
     latinName,
     note,
