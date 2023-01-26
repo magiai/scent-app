@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import styles from './scent.module.css'
-import { ScentImage } from './ScentImage'
+import { ScentImage } from './scentImage/ScentImage'
 import { ScentLabel } from './ScentLabel'
 import { ScentFamilyContext } from './../scentFamilyDecorator'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
@@ -24,7 +24,7 @@ export const Scent = ({
     isBasicScent,
     ...props
 }: IScentProps) => {
-    const showBasicScents = useContext(ScentFamilyContext)
+    const [showBasicScents, scentFamilyName] = useContext(ScentFamilyContext)
     const dispatch = useAppDispatch()
     const selectedScents = useAppSelector(selectChosenScents)
     const chosenScentsList = Object.values(selectedScents)[0]
@@ -43,7 +43,7 @@ export const Scent = ({
             onClick = { handleButtonClick }
             {...props}>
 
-            <ScentImage liquidColor = { liquidColor } />
+            <ScentImage liquidColor = { liquidColor } liquidColorSecond ={ liquidColorSecond } scentFamilyName = { scentFamilyName }/>
             <ScentLabel 
                 label = { label } 
                 latinName = { latinName }

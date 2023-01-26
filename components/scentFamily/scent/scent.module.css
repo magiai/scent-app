@@ -12,46 +12,26 @@
     transition-property: transform;
     transition-duration: 250ms;
     transition-timing-function: ease-out;
+    background-color: rgba(255, 255, 255, 0);
 }
 
-.bottle {
+.circleGradient {
+    transform: rotateZ(180deg);
+    transform-origin: center;
+}
+
+
+.scentSvg {
     display: flex;
     width: var(--svg__button__width);
     height: var(--svg__button__height);
     margin-top: var(--space--s);
-    background-color: white;
-    border-top-width: var(--button__border__width);
-    border-right-width: var(--button__border__width);
-    border-bottom-width: var(--button__border__width);
-    border-left-width: var(--button__border__width);
-    border-color: black;
-    border-style: solid;
 }
-
-.bottle:hover {
-    width: 100%;
-    background-color: black;
-    opacity: 0.4;
-    color: white;
-}
-
-#bottle__path {
-    stroke: black;
-    stroke-width: 0.3rem;
-    transform-origin: bottom center;
-    transform: scale(0.9);
-}
-
 
 .button:not(.chosen):active,
 .button:not(.chosen):focus,
 .button:not(.chosen):hover {
     cursor: grab;
-}
-
-.carousel:not(.drag) .button:hover #bottle__path,
-.chosen #bottle__path {
-    transform: rotateZ(20deg) translateX(0%) translateY(-3%) scale(0.9);
 }
 
 .chosen #gradient-mask {
