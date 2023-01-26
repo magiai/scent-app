@@ -33,7 +33,7 @@
     --color--success: hsla(var(--hue--success), var(--saturation--base), var(--lightness--base), var(--opacity--base));
     --color--error: hsla(var(--hue--error), var(--saturation--base), var(--lightness--base), var(--opacity--base)); 
 
-    --background-color: var(--color--secondary);
+    --background-color: black;
 
     --spacing__ratio: 1.414;
     --spacing__ratio--desktop: 1.618;

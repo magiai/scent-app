@@ -9,7 +9,7 @@ interface IScentFamilyDecorator {
     children: React.ReactNode,
 }
 
-export const ScentFamilyContext = createContext(false);
+export const ScentFamilyContext = createContext([]);
 
 export const ScentFamilyDecorator = ({
     scentFamilyName,
@@ -17,7 +17,7 @@ export const ScentFamilyDecorator = ({
     children
 }: IScentFamilyDecorator) => {
     const [showBasicScents, setShowBasicScent] = useState(false)
-    const scentFamilyContextValue = showBasicScents
+    const scentFamilyContextValue = [showBasicScents, scentFamilyName]
     let isOpen = resultsLength > 0 ? true : false;  
 
     const toggleBasicScents = () => {

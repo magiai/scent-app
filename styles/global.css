@@ -19,7 +19,7 @@ body {
     line-height: 1.5;
 	letter-spacing: 0.12em;
 	word-spacing: 0.16em;
-    color: var(--color--black);
+    color: var(--color--white);
     background-color: var(--background-color);
     margin: 0;
     position: relative;
@@ -35,14 +35,6 @@ body {
 		transition-duration: 0.01ms !important;
 		scroll-behavior: auto !important;
 	}
-}
-
-.svg__background {
-	position: absolute;
-	top: 0;
-	left: 0;
-	opacity: 0.4;
-    z-index: -1;
 }
 
 p,
