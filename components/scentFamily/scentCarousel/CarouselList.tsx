@@ -4,8 +4,8 @@ import { motion } from "framer-motion"
 import { useWindowSize } from "@react-hook/window-size"
 import styles from './scentCarousel.module.css'
 import { CarouselContext } from './Carousel'
-import { useAppSelector } from '../../../app/hooks'
-import { selectSearch } from "../../search/searchSlice"
+import { useAppSelector } from '../../../app/redux/hooks'
+import { selectSearch } from "../../../app/redux/slices/searchSlice"
 
 interface CarouselListProps {
     content: React.ReactNode,

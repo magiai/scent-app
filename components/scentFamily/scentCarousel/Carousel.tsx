@@ -7,8 +7,8 @@ import { CarouselList } from './CarouselList'
 import { CarouselButtonNavigationLeft, 
         CarouselButtonNavigationRight,
         CarouselButtonToggle } from './CarouselButtons'
-import { useAppSelector } from '../../../app/hooks'
-import { selectSearch } from "../../search/searchSlice"
+import { useAppSelector } from '../../../app/redux/hooks'
+import { selectSearch } from "../../../app/redux/slices/searchSlice"
 
 export const CarouselContext = createContext([]);
 

@@ -3,8 +3,8 @@ import styles from './scent.module.css'
 import { ScentImage } from './scentImage/ScentImage'
 import { ScentLabel } from './ScentLabel'
 import { ScentFamilyContext } from './../scentFamilyDecorator'
-import { useAppDispatch, useAppSelector } from '../../../app/hooks'
-import { selectChosenScents, addChosenScent, removeScent } from './scentSlice'
+import { useAppDispatch, useAppSelector } from '../../../app/redux/hooks'
+import { selectChosenScents, addChosenScent, removeScent } from '../../../app/redux/slices/scentSlice'
 
 interface IScentProps {
     liquidColor: string

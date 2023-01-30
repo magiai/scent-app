@@ -1,6 +1,6 @@
 import styles from './scentCompositionBoard.module.css'
-import { useAppSelector } from "../../app/hooks"
-import { selectChosenScents } from '../scentFamily/scent/scentSlice'
+import { useAppSelector } from "../../app/redux/hooks"
+import { selectChosenScents } from '../../app/redux/slices/scentSlice'
 import { ScentCompositionBoardListItem } from './ScentCompositionBoardListItem'
 
 interface ICompositionList {

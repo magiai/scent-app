@@ -1,8 +1,9 @@
 import React from "react"
 import { Scent } from './scent/Scent'
 import { ScentFamilyDecorator } from './scentFamilyDecorator'
-import { useAppSelector } from '../../app/hooks';
-import { selectSearch } from "../../components/search/searchSlice";
+import { useAppSelector } from '../../app/redux/hooks';
+import { selectSearch } from "../../app/redux/slices/searchSlice";
+import { selectIsLchModelSupported } from "../../app/redux/slices/colorModelSlice";
 
 interface IScentFamilyProps {
     scentFamilyName: string
@@ -16,6 +17,8 @@ export const ScentFamily = ({
     scents,
 }: IScentFamilyProps) => {
     const searchedPhrase = useAppSelector(selectSearch);
+    const isLchSupported = useAppSelector(selectIsLchModelSupported).isLchSupported;
+
     let results = [] 
 
     const filterScents = () => {
@@ -41,8 +44,11 @@ export const ScentFamily = ({
                             <Scent 
                                 label = { scent.name }
                                 latinName = { scent.latinName }
-                                liquidColor = { scent.color }
-                                liquidColorSecond = { scent.colorSecond ? scent.colorSecond : null}
+                                liquidColor = { isLchSupported ? scent.color : scent.colorFallback }
+                                liquidColorSecond = { scent.colorSecond ? 
+                                                        isLchSupported ? scent.colorSecond : scent.colorSecondFallback 
+                                                        : null
+                                                    }
                                 note = { note }
                                 isBasicScent = { scent.isBasic }
                             />  

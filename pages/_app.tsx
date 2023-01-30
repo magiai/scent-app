@@ -2,7 +2,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import type { AppProps } from 'next/app';
-import { store } from '../app/store';
+import { store } from '../app/redux/store';
 import '../styles/variables.css';
 import '../styles/global.css';
 

@@ -1,5 +1,6 @@
-import searchEngineReducer from '../components/search/searchSlice';
-import chosenScentsReducer from  '../components/scentFamily/scent/scentSlice'
+import searchEngineReducer from './slices/searchSlice'
+import chosenScentsReducer from  './slices/scentSlice'
+import isLchSupportedReducer from  './slices/colorModelSlice'
 import {
     Action,
     configureStore,
@@ -10,6 +11,7 @@ import {
     reducer: {
         searchEngine: searchEngineReducer,
         chosenScents: chosenScentsReducer,
+        isLchSupported: isLchSupportedReducer,
     },
   });
   
