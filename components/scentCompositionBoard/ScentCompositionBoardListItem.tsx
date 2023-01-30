@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import styles from './scentCompositionBoard.module.css'
 import formStyles from '../form/forms.module.css'
-import { removeScent } from '../scentFamily/scent/scentSlice'
-import { useAppDispatch } from "../../app/hooks"
+import { removeScent } from '../../app/redux/slices/scentSlice'
+import { useAppDispatch } from "../../app/redux/hooks"
 
 interface ICompositionListItem {
     scentId: string,

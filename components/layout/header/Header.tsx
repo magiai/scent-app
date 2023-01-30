@@ -2,8 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './header.module.css';
-import { useAppSelector } from '../app/hooks';
-import { selectSearch } from './../components/search/searchSlice';
+import { useAppSelector } from '../../../app/redux/hooks';
+import { selectSearch } from '../../../app/redux/slices/searchSlice';
 
 export default function Header() {
     const selectPhrase = useAppSelector(selectSearch);

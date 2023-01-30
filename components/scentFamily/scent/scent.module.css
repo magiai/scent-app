@@ -15,9 +15,15 @@
     background-color: rgba(255, 255, 255, 0);
 }
 
-.circleGradient {
+/* .circleGradient {
     transform: rotateZ(180deg);
     transform-origin: center;
+} */
+.noiseFilter {
+    opacity: 0.8;
+}
+.chosen .noiseFilter {
+    opacity: 0;
 }
 
 

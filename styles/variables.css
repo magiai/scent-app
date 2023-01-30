@@ -72,6 +72,12 @@
     --aside__summary__width: calc(var(--font-size--h2) - var(--space--xs));
 }
 
+@supports(color: lch(30% 78 30)) {
+    :root {
+        --isLChSupported: true; 
+    }
+}
+
 @media only screen and (min-width: 768px) {
     :root {
         --font-size__ratio: var(--font-size__ratio--desktop);

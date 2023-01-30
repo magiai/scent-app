@@ -1,11 +1,11 @@
 import { useState, useMemo, useEffect } from 'react'
 import {
   useAppDispatch
-} from '../../app/hooks'
+} from '../../app/redux/hooks'
 import {
   setSearchedPhrase,
   initialState
-} from './searchSlice'
+} from '../../app/redux/slices/searchSlice'
 import styles from '../form/forms.module.css'
 import searchStyles from './search.module.css'
 

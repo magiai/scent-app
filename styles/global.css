@@ -12,6 +12,11 @@ html {
     text-decoration: underline;
     background-color: red;
 } */
+/* @supports(color: lch(30% 78 30)) {
+	.lch__test {
+		color: green;
+	}
+} */
 
 body {
     font-family: var(--font-family--base);

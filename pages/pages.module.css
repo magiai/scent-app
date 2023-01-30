@@ -1,0 +1,5 @@
+@supports(color: lch(30% 78 30)) {
+	.lchTest {
+		color: green;
+	}
+}
