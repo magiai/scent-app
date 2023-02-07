@@ -42,7 +42,9 @@ export const CarouselList = ({
     }, [width, height])
 
     useEffect(() => {
-        xAxisContentPosition.current = 0
+        if (isCarouselExpanded === true || searchedPhrase !== '') {
+            xAxisContentPosition.current = 0
+        }
     }, [isCarouselExpanded || searchedPhrase])
 
     const stopLooping = () => {
@@ -63,7 +65,7 @@ export const CarouselList = ({
 
     return (
         // https://codesandbox.io/s/framer-motion-2-layout-animations-kij8p?from-embed
-        <motion.ul layout="position" className = {styles.carouselList}  ref = { carouselList }>
+        <motion.ul layout="position" className = { styles.carouselList }  ref = { carouselList }>
             { content }
         </motion.ul>
     );

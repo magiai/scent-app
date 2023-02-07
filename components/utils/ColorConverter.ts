@@ -1,6 +1,3 @@
-import { useAppSelector } from '../../app/redux/hooks';
-import { selectIsLchModelSupported } from "../../app/redux/slices/colorModelSlice";
-
 export class ColorConverter {
     private scentColor: string
     private differenceValue: number
@@ -14,7 +11,7 @@ export class ColorConverter {
     }
     
     public calculateLighterColor() {
-        let isLchSupported = useAppSelector(selectIsLchModelSupported).isLchSupported;
+        let isLchSupported = this.scentColor.includes('lch')
         const newColor = isLchSupported ? this.calculateColorFromLchColorModel() : this.calculateColorFromHslColorModel() 
         return newColor
     }

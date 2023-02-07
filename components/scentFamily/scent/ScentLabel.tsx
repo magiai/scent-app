@@ -12,9 +12,9 @@ export const ScentLabel = ({
 }: ScentLabelProps) => {
 
     return (
-        <div className={ styles['button--scent__label'] }>
+        <figcaption className={ styles.figcaption }>
             <span>{ label }</span>
             <i>{ latinName }</i>
-        </div>
+        </figcaption>
     );
 };

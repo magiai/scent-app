@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import styles from './scent.module.css'
+import { ScentButton } from './ScentButton'
+import { SvgDecorator } from '../../svg/SvgDecorator'
 import { ScentImage } from './scentImage/ScentImage'
 import { ScentLabel } from './ScentLabel'
 import { ScentFamilyContext } from './../scentFamilyDecorator'
-import { useAppDispatch, useAppSelector } from '../../../app/redux/hooks'
-import { selectChosenScents, addChosenScent, removeScent } from '../../../app/redux/slices/scentSlice'
 
 interface IScentProps {
     liquidColor: string
@@ -21,33 +21,29 @@ export const Scent = ({
     label,
     latinName,
     note,
-    isBasicScent,
-    ...props
+    isBasicScent
 }: IScentProps) => {
-    const [showBasicScents, scentFamilyName] = useContext(ScentFamilyContext)
-    const dispatch = useAppDispatch()
-    const selectedScents = useAppSelector(selectChosenScents)
-    const chosenScentsList = Object.values(selectedScents)[0]
     let proportion = 1
-    const chosenScentDataForDispach = [liquidColor ,note, label, proportion]
-    const isChosen = chosenScentsList.findIndex((scent) => scent.id === liquidColor) !== -1
-
-    const handleButtonClick = () => {
-        isChosen ? dispatch(removeScent(liquidColor)) : dispatch(addChosenScent(chosenScentDataForDispach))
-    }
-
+    //naprawić, po usunięciu showBasicScents psuje się svg
+    const [showBasicScents, scentFamilyName] = useContext(ScentFamilyContext)
+    const chosenScentData = [liquidColor, note, label, proportion]
+    const graphicDescription = `${label} in the ${scentFamilyName} scent category, latin name ${latinName}` 
+    
     return (
-        <button
-            type="button"
-            className = {`${ styles.button } ${ isChosen ? styles.chosen : '' } ${ showBasicScents && !isBasicScent ? styles.buttonHidden : '' }`}
-            onClick = { handleButtonClick }
-            {...props}>
-
-            <ScentImage liquidColor = { liquidColor } liquidColorSecond ={ liquidColorSecond } scentFamilyName = { scentFamilyName }/>
-            <ScentLabel 
-                label = { label } 
-                latinName = { latinName }
-            />
-        </button>
+        <ScentButton chosenScentDataForDispach = { chosenScentData } isBasicScent = { isBasicScent }>        
+            <figure className = { styles.figure }>
+                <SvgDecorator 
+                    scentName = { label } 
+                    graphicDescription = { graphicDescription } 
+                    svgClassName = { styles.scentSvg }
+                    >
+                    <ScentImage liquidColor = { liquidColor } liquidColorSecond ={ liquidColorSecond } scentFamilyName = { scentFamilyName }/>
+                </SvgDecorator>
+                <ScentLabel 
+                    label = { label } 
+                    latinName = { latinName }
+                    />
+            </figure>
+        </ScentButton>
     );
 };

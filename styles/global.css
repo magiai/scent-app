@@ -12,11 +12,6 @@ html {
     text-decoration: underline;
     background-color: red;
 } */
-/* @supports(color: lch(30% 78 30)) {
-	.lch__test {
-		color: green;
-	}
-} */
 
 body {
     font-family: var(--font-family--base);
@@ -24,6 +19,7 @@ body {
     line-height: 1.5;
 	letter-spacing: 0.12em;
 	word-spacing: 0.16em;
+    text-rendering: optimizeLegibility;
     color: var(--color--white);
     background-color: var(--background-color);
     margin: 0;

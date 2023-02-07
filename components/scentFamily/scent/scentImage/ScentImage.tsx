@@ -1,6 +1,7 @@
 import React from 'react';
-import { CitrusSvg } from './categoryImageSvg/CitrusSvg'
-import { ColorConverter } from '../../../utils/ColorConverter';
+import { CitrusSvgGroup } from './categoryImageSvg/CitrusSvgGroup'
+import { FlowerSvgGroup } from './categoryImageSvg/FlowerSvgGroup'
+import { ColorConverter } from '../../../utils/ColorConverter'
 
 interface IScentImageProps {
     liquidColor: string
@@ -13,19 +14,18 @@ export const ScentImage = ({
     liquidColorSecond,
     scentFamilyName
 }: IScentImageProps) => {
-    let svgType = null;
-    const newColor = new ColorConverter(liquidColor, 25).calculateLighterColor();
+    const newColor = new ColorConverter(liquidColor, 25).calculateLighterColor()
 
-    switch (scentFamilyName) {
-        case 'citrus':
-            svgType = <CitrusSvg liquidColor = { liquidColor } accentColor = { newColor } />
-        default: 
-            svgType = <CitrusSvg liquidColor = { liquidColor } accentColor = { newColor } />
-    }
+    const SVG_GROUP_MAP = {
+        'citrus': <CitrusSvgGroup liquidColor = { liquidColor } accentColor = { newColor } />,
+        'flowers': <FlowerSvgGroup liquidColor = { liquidColor } liquidSecondaryColor = { liquidColorSecond } accentColor = { newColor } />,
+      }
+      
+    const SvgGroup = SVG_GROUP_MAP[scentFamilyName]
 
     return (
         <>
-            { svgType }
+            { SvgGroup }
         </>
     );
 };

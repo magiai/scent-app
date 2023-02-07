@@ -25,8 +25,8 @@ export const Carousel = ({
     const [isCarouselExpanded, setCarouselIsExpanded] = useState(false)
     const [shouldBeLooping, setLoop] = useState(false)
     const prefersReducedMotion = useReducedMotion()
-    const selectPhrase = useAppSelector(selectSearch);
-    
+    const selectPhrase = useAppSelector(selectSearch)
+
     const factor = {
         carouselSpeed: prefersReducedMotion ? 0.0011 : 0.15,
         threshold: 0.001,
