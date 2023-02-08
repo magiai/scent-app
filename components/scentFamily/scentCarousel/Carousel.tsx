@@ -1,5 +1,7 @@
 import styles from './scentCarousel.module.css'
-import React, { createContext, useEffect, useRef, useState } from "react"
+import React, { createContext, useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { useToggleCarousel } from '../../../app/hooks/useToggleCarousel'
+import { useShouldBeCarouselLooping } from '../../../app/hooks/useShouldBeCarouselLooping'
 import { motion, useSpring, useReducedMotion } from "framer-motion"
 import normalizeWheel from "normalize-wheel"
 import { useRafLoop } from "react-use"
@@ -20,85 +22,80 @@ export const Carousel = ({
     children
 }: ICarouselProps) => {
     const carouselRef = useRef(null)
-    const slowDown = useRef(false)
     const xVelocity = useRef(0)
-    const [isCarouselExpanded, setCarouselIsExpanded] = useState(false)
-    const [shouldBeLooping, setLoop] = useState(false)
-    const prefersReducedMotion = useReducedMotion()
+    const [isCarouselToggled, toggleCarousel] = useToggleCarousel(false);
+    const [shouldBeCarouselLooping, setLoopingCarousel] = useShouldBeCarouselLooping(false);
+    const carouselContextValues = [isCarouselToggled, shouldBeCarouselLooping]
     const selectPhrase = useAppSelector(selectSearch)
+
+    const prefersReducedMotion = useReducedMotion()
 
     const factor = {
         carouselSpeed: prefersReducedMotion ? 0.0011 : 0.15,
         threshold: 0.001,
         wheelSpeed: 1.5,
-        dragSpeed: 1.5
+        dragSpeed: 1.5,
     };
 
     const speed = useSpring(factor.carouselSpeed, {
         damping: 10,
         stiffness: 30,
         mass: 8
-    });
+    })
+
+    const handleLoopingTime = timeToStop => {
+        setLoopingCarousel(true)
+        setTimeout(() => setLoopingCarousel(false), timeToStop)
+    }
 
     const onWheel = (event) => {
-        if (isCarouselExpanded || selectPhrase !== '') return; 
-        
+        if (isCarouselToggled || selectPhrase !== '') return; 
         const normalizedScrollDistance = normalizeWheel(event);
         xVelocity.current = normalizedScrollDistance.pixelY * factor.wheelSpeed
-        setLoop(true)
-        setTimeout(() => {
-            setLoop(false)
-        }, 3000)
+        handleLoopingTime(3000)
     }
 
     const onHorizontalNavButtonClick = (velocityValue: number) => {
-        xVelocity.current = velocityValue;
-        setLoop(true)
-        setTimeout(() => {
-            setLoop(false)
-        }, 500)
+        handleLoopingTime(500)
+        xVelocity.current = velocityValue
         return xVelocity.current
     }
+    
+    useCallback(() => {
+        setLoopingCarousel(false)
+    }, [isCarouselToggled || selectPhrase])
 
-    const onButtonToggleClick = () => {
-        setCarouselIsExpanded(prevCarouselState => !prevCarouselState)
-    }
-
-    useEffect(() => {
-        setLoop(false)
-    }, [isCarouselExpanded || selectPhrase])
-
-    const onDragStart = (event) => {
-        slowDown.current = true
+    const onDragStart = event => {
         carouselRef.current.classList.add("drag")
-        setLoop(true)
+        setLoopingCarousel(true)
     }
 
     const onDrag = (event, info) => {
         speed.set(factor.dragSpeed * -info.delta.x)
     }
 
-    const onDragEnd = (event) => {
-        slowDown.current = false
+    const onDragEnd = event => {
         carouselRef.current.classList.remove("drag")
-        setLoop(false)
+        setLoopingCarousel(false)
+    }
+
+    const setXVelocity = () => {
+        xVelocity.current *= 0.66
+        xVelocity.current = xVelocity.current < 0 ? Math.min(xVelocity.current, 0) : Math.max(xVelocity.current, 0)
+        speed.set(factor.carouselSpeed + xVelocity.current)
     }
 
     const loop = () => {
-        if (slowDown.current || Math.abs(xVelocity.current) < factor.threshold) return;
-        xVelocity.current *= 0.66
-        xVelocity.current < 0 ? xVelocity.current = Math.min(xVelocity.current, 0) : xVelocity.current = Math.max(xVelocity.current, 0)
-        speed.set(factor.carouselSpeed + xVelocity.current)
+        if (!shouldBeCarouselLooping || Math.abs(xVelocity.current) < factor.threshold) return;
+        setXVelocity()
     }
 
     useRafLoop(loop, true);
 
-    const carouselContextValues = [isCarouselExpanded, shouldBeLooping]
-
     return (
         <CarouselContext.Provider value = {carouselContextValues}>
             <motion.div
-                className = { `${styles.carousel} ${ !isCarouselExpanded && selectPhrase === '' ? styles.closed : styles.toggled }` }
+                className = { `${styles.carousel} ${ !isCarouselToggled && selectPhrase === '' ? styles.closed : styles.toggled }` }
                 ref = { carouselRef }
                 onWheel = { onWheel }
                 drag = "x"
@@ -109,12 +106,12 @@ export const Carousel = ({
                 dragElastic = { 0.000001 }
             >
                 <CarouselList content = { children } speed = { speed } /> 
-                { !isCarouselExpanded && selectPhrase === '' ? 
+                { !isCarouselToggled && selectPhrase === '' ? 
                     <CarouselList content = {children} speed = { speed } />: <></>
                 }
                 <CarouselButtonNavigationLeft onHorizontalNavButtonClick = { onHorizontalNavButtonClick } />
                 <CarouselButtonNavigationRight onHorizontalNavButtonClick = { onHorizontalNavButtonClick } />
-                <CarouselButtonToggle onButtonToggleClick = { onButtonToggleClick } />
+                <CarouselButtonToggle onButtonToggleClick = { toggleCarousel } />
             </motion.div>
         </CarouselContext.Provider>
     );

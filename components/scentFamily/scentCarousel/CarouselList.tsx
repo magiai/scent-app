@@ -1,5 +1,4 @@
-import React, { useRef, useEffect, useContext, useMemo } from "react"
-import { useRafLoop } from "react-use"
+import React, { useRef, useEffect, useContext, useLayoutEffect } from "react"
 import { motion } from "framer-motion"
 import { useWindowSize } from "@react-hook/window-size"
 import styles from './scentCarousel.module.css'
@@ -20,7 +19,7 @@ export const CarouselList = ({
     const rect = useRef<Object>({})
     const frame = useRef<number>(0)
     const xAxisContentPosition = useRef<number>(0)
-    const [isCarouselExpanded, shouldBeLooping] = useContext(CarouselContext)
+    const [isCarouselExpanded, shouldBeCarouselLooping] = useContext(CarouselContext)
     const searchedPhrase = useAppSelector(selectSearch);
     const [width, height] = useWindowSize()
 
@@ -33,13 +32,22 @@ export const CarouselList = ({
         const xPosition = calculteXAxisContentPosition()
         if (xPosition < -100) xAxisContentPosition.current = 0
         if (xPosition > 0) xAxisContentPosition.current = -rect.current.width
-
         carouselList.current.style.transform = `translate3d(${xPosition}%, 0, 0)`
     };
-    
-    useEffect(() => {
+
+    const setRectangularReference = () => {
+        if(!carouselList.current) return
         rect.current = carouselList.current.getBoundingClientRect()
+    }
+    
+    useLayoutEffect(() => {
+        setRectangularReference()
+    }, [carouselList.current])
+
+    useEffect(() => {
+        setRectangularReference()
     }, [width, height])
+
 
     useEffect(() => {
         if (isCarouselExpanded === true || searchedPhrase !== '') {
@@ -60,12 +68,15 @@ export const CarouselList = ({
     }
    
     useEffect(() => {
-        shouldBeLooping ? loop() : stopLooping()
-    }, [shouldBeLooping])
+        shouldBeCarouselLooping ? loop() : stopLooping()
+    }, [shouldBeCarouselLooping])
 
     return (
         // https://codesandbox.io/s/framer-motion-2-layout-animations-kij8p?from-embed
-        <motion.ul layout="position" className = { styles.carouselList }  ref = { carouselList }>
+        <motion.ul 
+                    layout="position" 
+                    className = { styles.carouselList }  
+                    ref = { carouselList }>
             { content }
         </motion.ul>
     );
