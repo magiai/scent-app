@@ -3,6 +3,7 @@
     width: 100%;
     position: relative;
     contain: layout;
+    margin-top: 1em;
 }
 
 .carouselList {
@@ -33,8 +34,8 @@
 .buttonDown  {
     position: absolute;
     z-index: 2;
-    height: var(--icon__size--min);
-    width: var(--icon__size--min);
+    height: var(--button__height);
+    width: var(--button__height);
     border-radius: 50%;
     box-shadow: 0.3em 0.3em 0.5em black;
     transition: transform 0.2s ease-in-out;
@@ -42,7 +43,7 @@
 
 .buttonLeft,
 .buttonRight {
-    top: calc((var(--svg__button__height) + var(--button--svg__label__height) + var(--space--s) - var(--icon__size--min)) / 2);
+    top: calc((var(--svg__button__height) + var(--button--svg__label__height) + var(--space--s) - var(--button__height)) / 2);
 }
 
 .buttonLeft {
@@ -55,7 +56,7 @@
 
 .buttonDown {
     bottom: 0;
-    left: calc(50% - var(--icon__size--min) / 2);
+    left: calc(50% - var(--button__height) / 2);
 }
 
 .toggled .buttonLeft {

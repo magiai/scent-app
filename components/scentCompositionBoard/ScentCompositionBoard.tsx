@@ -15,10 +15,10 @@ export const ScentCompositionBoard = (): JSX.Element => {
                 {
                     notes.map(note => {
                         return(
-                            <>
+                            <div  key = {note}>
                                 <h3>{ note } notes:</h3>
                                 <ScentCompositionBoardList note = { note } />
-                            </>
+                            </div>
                         )
                     })
                 }

@@ -1,5 +1,5 @@
 import styles from './scentCarousel.module.css'
-import React, { createContext, useCallback, useEffect, useMemo, useRef, useState } from "react"
+import React, { createContext, useRef, useEffect } from "react"
 import { useToggleCarousel } from '../../../app/hooks/useToggleCarousel'
 import { useShouldBeCarouselLooping } from '../../../app/hooks/useShouldBeCarouselLooping'
 import { motion, useSpring, useReducedMotion } from "framer-motion"
@@ -23,8 +23,8 @@ export const Carousel = ({
 }: ICarouselProps) => {
     const carouselRef = useRef(null)
     const xVelocity = useRef(0)
-    const [isCarouselToggled, toggleCarousel] = useToggleCarousel(false);
-    const [shouldBeCarouselLooping, setLoopingCarousel] = useShouldBeCarouselLooping(false);
+    const [isCarouselToggled, toggleCarousel] = useToggleCarousel(false)
+    const [shouldBeCarouselLooping, setLoopingCarousel] = useShouldBeCarouselLooping(false)
     const carouselContextValues = [isCarouselToggled, shouldBeCarouselLooping]
     const selectPhrase = useAppSelector(selectSearch)
 
@@ -48,8 +48,15 @@ export const Carousel = ({
         setTimeout(() => setLoopingCarousel(false), timeToStop)
     }
 
-    const onWheel = (event) => {
-        if (isCarouselToggled || selectPhrase !== '') return; 
+    const handleIntraction = interactionHandler => {
+        if (isCarouselToggled || selectPhrase !== '') {
+            return
+        } else {
+            interactionHandler(event)
+        }
+    }
+
+    const onWheel = event => {
         const normalizedScrollDistance = normalizeWheel(event);
         xVelocity.current = normalizedScrollDistance.pixelY * factor.wheelSpeed
         handleLoopingTime(3000)
@@ -61,9 +68,9 @@ export const Carousel = ({
         return xVelocity.current
     }
     
-    useCallback(() => {
+    useEffect(() => {
         setLoopingCarousel(false)
-    }, [isCarouselToggled || selectPhrase])
+    }, [isCarouselToggled, selectPhrase])
 
     const onDragStart = event => {
         carouselRef.current.classList.add("drag")
@@ -71,6 +78,7 @@ export const Carousel = ({
     }
 
     const onDrag = (event, info) => {
+        if (isCarouselToggled || selectPhrase !== '') return;
         speed.set(factor.dragSpeed * -info.delta.x)
     }
 
@@ -97,12 +105,12 @@ export const Carousel = ({
             <motion.div
                 className = { `${styles.carousel} ${ !isCarouselToggled && selectPhrase === '' ? styles.closed : styles.toggled }` }
                 ref = { carouselRef }
-                onWheel = { onWheel }
+                onWheel = { () => handleIntraction(onWheel) }
                 drag = "x"
                 dragConstraints = {{ left: 0, right: 0 }}
-                onDragStart = { onDragStart }
+                onDragStart = { () => handleIntraction(onDragStart) }
                 onDrag = { onDrag }
-                onDragEnd = { onDragEnd }
+                onDragEnd = { () => handleIntraction(onDragEnd) }
                 dragElastic = { 0.000001 }
             >
                 <CarouselList content = { children } speed = { speed } /> 

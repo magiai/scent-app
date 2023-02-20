@@ -79,6 +79,7 @@ a:hover, a:active, a:focus {
 button {
     font-size: max(var(--font-size--base), 1em);
     font-family: inherit;
+    height: var(--button__height);
     padding: 0.25em 0.5em;
     background-color: var(--color--secondary);
     border-radius: 0.1rem;
