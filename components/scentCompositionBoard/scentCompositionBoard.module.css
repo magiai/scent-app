@@ -1,5 +1,5 @@
 .aside {
-    --aside__width: min(calc(var(--font-size--h2) + 3 * var(--svg__button__width) + var(--aside__summary__width) + var(--space--m)), 100vw);
+    --aside__width: min(calc(var(--font-size--h2) + 3 * var(--svg__button__width) + var(--aside__summary__width) + var(--space--xl)), 100vw);
     display: flex;
     position: fixed;
     bottom: 0;
@@ -45,6 +45,7 @@
 
 .notes {
     padding-left: calc(var(--aside__summary__width) + var(--space--xl));
+    padding-right: var(--space--s);
 }
 
 .list {

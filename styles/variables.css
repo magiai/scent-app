@@ -52,7 +52,7 @@
     --font-size--h2: calc(var(--font-size--h3) * var(--font-size__ratio));
     --font-size--h1: calc(var(--font-size--h2) * var(--font-size__ratio));
 
-    --input__height: 4rem;
+    --input__height: 4.8rem;
     --input__border__width: 0.1rem;
     --input__border__style: solid;
     --input__border__color: var(--color--primary);
@@ -67,7 +67,7 @@
     --button__border__width: 0.1rem;
     --button--svg__label__height: 4.4rem;
 
-    --icon__size--min: 4.8rem;
+    --button__height: 4.8rem;
 
     --aside__summary__width: calc(var(--font-size--h2) - var(--space--xs));
 }

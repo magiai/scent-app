@@ -14,7 +14,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: var(--color--secondary); */
     border-right-width: 0rem;
     border-left-width: 0rem;
     border-bottom-width: 0rem;
@@ -33,24 +32,24 @@
 }
 
 .summary div {
-    width: calc(100% - var(--font-size--h2));
+    width: inherit;
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: baseline;
+    position: absolute;
 
 }
 
 .summary::marker {
     font-size: var(--font-size--h2);
     color: currentColor;
+    display: list-item;
 }
 
-.summary h2 {
-    /* background-color: white; */
+.headingSummary {
     margin-block-start: 0.23em;
-    margin-block-end: 0;
-    padding-top: var(--space--xs);
+    margin-block-end: 0.23em;
     padding-left: var(--space--xl);
     padding-right: var(--space--xl);
     border-right-width: var(--button__border__width);

@@ -29,7 +29,7 @@ export const ScentFamilyDecorator = ({
             <details open = { isOpen } className = { styles.details }>
                 <summary className = { styles.summary }>
                     <div>
-                        <h2>{ scentFamilyName }</h2>
+                        <h2 className = { styles.headingSummary }>{ scentFamilyName }</h2>
                         <BasicScentsChoice toggleBasicScents = { toggleBasicScents }/>
                     </div>
                 </summary>
